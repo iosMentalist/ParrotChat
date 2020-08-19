@@ -10,7 +10,7 @@ class UserStore{
 
     var receivedInvocatins = 0
 
-    func insert(user:User){
+    func insert(user:User, completion: @escaping (Result<Void, Error>) -> Void){
         receivedInvocatins += 1
     }
 }
@@ -25,7 +25,7 @@ class ParrotChatTests: XCTestCase {
     func test_save_withError(){
         let sut = makeSUT()
 
-        sut.insert(user:anyUser())
+        sut.insert(user:anyUser()){_ in }
 
        XCTAssertEqual(sut.receivedInvocatins, 1)
     }
