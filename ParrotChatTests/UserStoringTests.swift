@@ -36,7 +36,7 @@ class ParrotChatTests: XCTestCase {
         XCTAssertEqual(sut.store.receivedInvocatins, 0)
     }
 
-    func test_streo_save_withError(){
+    func test_store_save_withError(){
         let (_,store) = makeSUT()
 
         store.insert(user:anyUser()){_ in }
