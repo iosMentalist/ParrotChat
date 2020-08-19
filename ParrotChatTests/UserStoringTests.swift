@@ -16,11 +16,13 @@ class UserStore{
 }
 
 class UserSaver {
-    
+
     let store : UserStore
     init(_ store:UserStore){
         self.store = store
     }
+
+
 
 }
 
@@ -30,25 +32,27 @@ class ParrotChatTests: XCTestCase {
     func test_init_doesntInvokeStoreWhenCreated(){
 
         let sut = makeSUT()
-        XCTAssertEqual(sut.receivedInvocatins, 0)
+
+        XCTAssertEqual(sut.store.receivedInvocatins, 0)
     }
 
-    func test_save_withError(){
-        let sut = makeSUT()
+    func test_streo_save_withError(){
+        let (_,store) = makeSUT()
 
-        sut.insert(user:anyUser()){_ in }
-        sut.completeWithInsertionError()
+        store.insert(user:anyUser()){_ in }
+        store.completeWithInsertionError()
 
-       XCTAssertEqual(sut.insertionErrors, 1)
+       XCTAssertEqual(store.insertionErrors, 1)
     }
 
 
 
     //HELERPS
-    func makeSUT() -> UserStoreSpy{
+    func makeSUT() -> (userSaver:UserSaver, store:UserStoreSpy){
         let store = UserStoreSpy()
+        let userSaver = UserSaver(store)
 
-        return store
+        return (userSaver,store)
     }
 
     func anyUser() -> User{
