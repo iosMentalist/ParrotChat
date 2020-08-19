@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E61D9E3E24EBFB0400A29695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D9E3D24EBFB0400A29695 /* AppDelegate.swift */; };
+		E61D9E4024EBFB0400A29695 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D9E3F24EBFB0400A29695 /* SceneDelegate.swift */; };
+		E61D9E4224EBFB0400A29695 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D9E4124EBFB0400A29695 /* ViewController.swift */; };
+		E61D9E4524EBFB0400A29695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4324EBFB0400A29695 /* Main.storyboard */; };
+		E61D9E4724EBFB0600A29695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4624EBFB0600A29695 /* Assets.xcassets */; };
+		E61D9E4A24EBFB0600A29695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4824EBFB0600A29695 /* LaunchScreen.storyboard */; };
+		E61D9E5524EBFB0600A29695 /* ParrotChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D9E5424EBFB0600A29695 /* ParrotChatTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E61D9E5124EBFB0600A29695 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E61D9E3224EBFB0400A29695 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E61D9E3924EBFB0400A29695;
+			remoteInfo = ParrotChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E61D9E3A24EBFB0400A29695 /* ParrotChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParrotChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E61D9E3D24EBFB0400A29695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E61D9E3F24EBFB0400A29695 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E61D9E4124EBFB0400A29695 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E61D9E4424EBFB0400A29695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E61D9E4624EBFB0600A29695 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E61D9E4924EBFB0600A29695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E61D9E4B24EBFB0600A29695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E61D9E5024EBFB0600A29695 /* ParrotChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParrotChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E61D9E5424EBFB0600A29695 /* ParrotChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotChatTests.swift; sourceTree = "<group>"; };
+		E61D9E5624EBFB0600A29695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6F855DB24EC2AE900CB270D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E61D9E3724EBFB0400A29695 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E61D9E4D24EBFB0600A29695 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E61D9E3124EBFB0400A29695 = {
+			isa = PBXGroup;
+			children = (
+				E6F855DB24EC2AE900CB270D /* README.md */,
+				E61D9E3C24EBFB0400A29695 /* ParrotChat */,
+				E61D9E5324EBFB0600A29695 /* ParrotChatTests */,
+				E61D9E3B24EBFB0400A29695 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E61D9E3B24EBFB0400A29695 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E61D9E3A24EBFB0400A29695 /* ParrotChat.app */,
+				E61D9E5024EBFB0600A29695 /* ParrotChatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E61D9E3C24EBFB0400A29695 /* ParrotChat */ = {
+			isa = PBXGroup;
+			children = (
+				E61D9E3D24EBFB0400A29695 /* AppDelegate.swift */,
+				E61D9E3F24EBFB0400A29695 /* SceneDelegate.swift */,
+				E61D9E4124EBFB0400A29695 /* ViewController.swift */,
+				E61D9E4324EBFB0400A29695 /* Main.storyboard */,
+				E61D9E4624EBFB0600A29695 /* Assets.xcassets */,
+				E61D9E4824EBFB0600A29695 /* LaunchScreen.storyboard */,
+				E61D9E4B24EBFB0600A29695 /* Info.plist */,
+			);
+			path = ParrotChat;
+			sourceTree = "<group>";
+		};
+		E61D9E5324EBFB0600A29695 /* ParrotChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				E61D9E5424EBFB0600A29695 /* ParrotChatTests.swift */,
+				E61D9E5624EBFB0600A29695 /* Info.plist */,
+			);
+			path = ParrotChatTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E61D9E3924EBFB0400A29695 /* ParrotChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E61D9E5924EBFB0600A29695 /* Build configuration list for PBXNativeTarget "ParrotChat" */;
+			buildPhases = (
+				E61D9E3624EBFB0400A29695 /* Sources */,
+				E61D9E3724EBFB0400A29695 /* Frameworks */,
+				E61D9E3824EBFB0400A29695 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ParrotChat;
+			productName = ParrotChat;
+			productReference = E61D9E3A24EBFB0400A29695 /* ParrotChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E61D9E4F24EBFB0600A29695 /* ParrotChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E61D9E5C24EBFB0600A29695 /* Build configuration list for PBXNativeTarget "ParrotChatTests" */;
+			buildPhases = (
+				E61D9E4C24EBFB0600A29695 /* Sources */,
+				E61D9E4D24EBFB0600A29695 /* Frameworks */,
+				E61D9E4E24EBFB0600A29695 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E61D9E5224EBFB0600A29695 /* PBXTargetDependency */,
+			);
+			name = ParrotChatTests;
+			productName = ParrotChatTests;
+			productReference = E61D9E5024EBFB0600A29695 /* ParrotChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E61D9E3224EBFB0400A29695 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Shady Kahaleh";
+				TargetAttributes = {
+					E61D9E3924EBFB0400A29695 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					E61D9E4F24EBFB0600A29695 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = E61D9E3924EBFB0400A29695;
+					};
+				};
+			};
+			buildConfigurationList = E61D9E3524EBFB0400A29695 /* Build configuration list for PBXProject "ParrotChat" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E61D9E3124EBFB0400A29695;
+			productRefGroup = E61D9E3B24EBFB0400A29695 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E61D9E3924EBFB0400A29695 /* ParrotChat */,
+				E61D9E4F24EBFB0600A29695 /* ParrotChatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E61D9E3824EBFB0400A29695 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E61D9E4A24EBFB0600A29695 /* LaunchScreen.storyboard in Resources */,
+				E61D9E4724EBFB0600A29695 /* Assets.xcassets in Resources */,
+				E61D9E4524EBFB0400A29695 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E61D9E4E24EBFB0600A29695 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E61D9E3624EBFB0400A29695 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E61D9E4224EBFB0400A29695 /* ViewController.swift in Sources */,
+				E61D9E3E24EBFB0400A29695 /* AppDelegate.swift in Sources */,
+				E61D9E4024EBFB0400A29695 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E61D9E4C24EBFB0600A29695 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E61D9E5524EBFB0600A29695 /* ParrotChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E61D9E5224EBFB0600A29695 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E61D9E3924EBFB0400A29695 /* ParrotChat */;
+			targetProxy = E61D9E5124EBFB0600A29695 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E61D9E4324EBFB0400A29695 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E61D9E4424EBFB0400A29695 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E61D9E4824EBFB0600A29695 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E61D9E4924EBFB0600A29695 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E61D9E5724EBFB0600A29695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E61D9E5824EBFB0600A29695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E61D9E5A24EBFB0600A29695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ParrotChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.shady.ParrotChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E61D9E5B24EBFB0600A29695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ParrotChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.shady.ParrotChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E61D9E5D24EBFB0600A29695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ParrotChatTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.shady.ParrotChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParrotChat.app/ParrotChat";
+			};
+			name = Debug;
+		};
+		E61D9E5E24EBFB0600A29695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ParrotChatTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.shady.ParrotChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParrotChat.app/ParrotChat";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E61D9E3524EBFB0400A29695 /* Build configuration list for PBXProject "ParrotChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E61D9E5724EBFB0600A29695 /* Debug */,
+				E61D9E5824EBFB0600A29695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E61D9E5924EBFB0600A29695 /* Build configuration list for PBXNativeTarget "ParrotChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E61D9E5A24EBFB0600A29695 /* Debug */,
+				E61D9E5B24EBFB0600A29695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E61D9E5C24EBFB0600A29695 /* Build configuration list for PBXNativeTarget "ParrotChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E61D9E5D24EBFB0600A29695 /* Debug */,
+				E61D9E5E24EBFB0600A29695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E61D9E3224EBFB0400A29695 /* Project object */;
+}
