@@ -10,7 +10,7 @@ class UserStore{
 
     var receivedInvocatins = 0
 
-    func save(user:User){
+    func insert(user:User){
         receivedInvocatins += 1
     }
 }
@@ -25,7 +25,7 @@ class ParrotChatTests: XCTestCase {
     func test_save_withError(){
         let sut = makeSUT()
 
-        sut.save(user:anyUser())
+        sut.insert(user:anyUser())
 
        XCTAssertEqual(sut.receivedInvocatins, 1)
     }
@@ -40,5 +40,9 @@ class ParrotChatTests: XCTestCase {
         return User(name: "user name", imageName: "image", lastMessage: Message(body: "body", date: Date(), isMyMessage: true))
     }
 
+    class UserStoreSpy : UserStore{
+
+
+    }
 
 }
