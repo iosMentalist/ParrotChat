@@ -13,7 +13,7 @@
 		E61D9E4524EBFB0400A29695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4324EBFB0400A29695 /* Main.storyboard */; };
 		E61D9E4724EBFB0600A29695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4624EBFB0600A29695 /* Assets.xcassets */; };
 		E61D9E4A24EBFB0600A29695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4824EBFB0600A29695 /* LaunchScreen.storyboard */; };
-		E61D9E5524EBFB0600A29695 /* ParrotChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D9E5424EBFB0600A29695 /* ParrotChatTests.swift */; };
+		E61D9E5524EBFB0600A29695 /* UserStoringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D9E5424EBFB0600A29695 /* UserStoringTests.swift */; };
 		E64050C424ED151900F8D26C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64050C324ED151900F8D26C /* User.swift */; };
 		E68D9EB324ED1760005AEB83 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB224ED1760005AEB83 /* Message.swift */; };
 		E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB524ED186E005AEB83 /* Chat.swift */; };
@@ -39,7 +39,7 @@
 		E61D9E4924EBFB0600A29695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E61D9E4B24EBFB0600A29695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E61D9E5024EBFB0600A29695 /* ParrotChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParrotChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E61D9E5424EBFB0600A29695 /* ParrotChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotChatTests.swift; sourceTree = "<group>"; };
+		E61D9E5424EBFB0600A29695 /* UserStoringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoringTests.swift; sourceTree = "<group>"; };
 		E61D9E5624EBFB0600A29695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E64050C324ED151900F8D26C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E68D9EB224ED1760005AEB83 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		E61D9E5324EBFB0600A29695 /* ParrotChatTests */ = {
 			isa = PBXGroup;
 			children = (
-				E61D9E5424EBFB0600A29695 /* ParrotChatTests.swift */,
+				E61D9E5424EBFB0600A29695 /* UserStoringTests.swift */,
 				E61D9E5624EBFB0600A29695 /* Info.plist */,
 			);
 			path = ParrotChatTests;
@@ -256,7 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E61D9E5524EBFB0600A29695 /* ParrotChatTests.swift in Sources */,
+				E61D9E5524EBFB0600A29695 /* UserStoringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
