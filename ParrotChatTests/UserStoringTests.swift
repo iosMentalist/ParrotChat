@@ -22,6 +22,9 @@ class UserSaver {
         self.store = store
     }
 
+    func save(user:User,completion:@escaping(Result<Void,Error>)->Void){
+
+    }
 
 
 }
@@ -31,18 +34,17 @@ class ParrotChatTests: XCTestCase {
 
     func test_init_doesntInvokeStoreWhenCreated(){
 
-        let sut = makeSUT()
-
-        XCTAssertEqual(sut.store.receivedInvocatins, 0)
+        let (_, store) = makeSUT()
+        XCTAssertEqual(store.receivedInvocatins, 0)
     }
 
-    func test_store_save_withError(){
-        let (_,store) = makeSUT()
+    func test_save_withError(){
+        let (sut,store) = makeSUT()
 
-        store.insert(user:anyUser()){_ in }
-        store.completeWithInsertionError()
+       sut.save(user:anyUser()){_ in }
+       store.completeWithInsertionError()
 
-       XCTAssertEqual(store.insertionErrors, 1)
+      XCTAssertEqual(store.insertionErrors, 1)
     }
 
 
