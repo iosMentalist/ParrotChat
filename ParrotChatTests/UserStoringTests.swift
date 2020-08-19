@@ -10,10 +10,12 @@ class UserStore{
 
     var receivedInvocatins = 0
 
+
     func insert(user:User, completion: @escaping (Result<Void, Error>) -> Void){
         receivedInvocatins += 1
     }
 }
+
 class ParrotChatTests: XCTestCase {
 
     func test_init_doesntInvokeStoreWhenCreated(){
@@ -26,13 +28,15 @@ class ParrotChatTests: XCTestCase {
         let sut = makeSUT()
 
         sut.insert(user:anyUser()){_ in }
+        sut.completeWithInsertionError()
 
-       XCTAssertEqual(sut.receivedInvocatins, 1)
+       XCTAssertEqual(sut.insertionErrors, 1)
     }
 
     //HELERPS
-    func makeSUT() -> UserStore{
-        let store = UserStore()
+    func makeSUT() -> UserStoreSpy{
+        let store = UserStoreSpy()
+
         return store
     }
 
@@ -42,6 +46,11 @@ class ParrotChatTests: XCTestCase {
 
     class UserStoreSpy : UserStore{
 
+        private(set) var insertionErrors = 0
+
+        func completeWithInsertionError(){
+            insertionErrors += 1
+        }
 
     }
 
