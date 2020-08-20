@@ -6,6 +6,17 @@
 import XCTest
 @testable import ParrotChat
 
+
+struct LocalUser {
+    var name : String
+    var imageName : String
+    var lastMessage : LocalMessage
+}
+struct LocalMessage {
+    var body : String
+    var date : Date
+    var isMyMessage : Bool
+}
 class UserStore{
 
     func insert(user:User, completion: @escaping (Result<Void, Error>) -> Void){
@@ -47,11 +58,11 @@ class ParrotChatTests: XCTestCase {
     func test_save_successfully(){
         let (sut,store) = makeSUT()
         let user = anyUser()
-        
+
         sut.save(user:user){_ in }
         store.completeWithInsertionSuccess(user: user)
 
-        XCTAssertEqual(store.receivedInvocations.count, 1)
+        XCTAssertEqual(store.receivedInvocations, [.insert])
     }
 
 
@@ -69,10 +80,10 @@ class ParrotChatTests: XCTestCase {
     }
 
     class UserStoreSpy : UserStore{
-    enum ReceivedInvocation {
-        case insert(User)
-    }
-    var receivedInvocations = [ReceivedInvocation]()
+        enum ReceivedInvocation {
+            case insert(User)
+        }
+        var receivedInvocations = [ReceivedInvocation]()
 
         private(set) var insertionErrors = 0
 
