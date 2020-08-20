@@ -46,16 +46,25 @@ class UserRetrievingTests: XCTestCase {
 
     func test_retrieve_completeWithError(){
         let (sut, store) = makeSUT()
-        let retrieveError = NSError(domain: "", code: 0, userInfo: nil)
-        let exp = expectation(description: "Wait for expectation")
-        sut.retrieveAllUser { _ in
-            exp.fulfill()
+                let exp = expectation(description: "Wait for save completion")
+
+        let anyError =  NSError(domain: "receivedError", code: 1, userInfo: nil)
+        var receivedError : Error?
+
+        sut.retrieveAllUser(){
+            if case let Result.failure(error) = $0 {
+                receivedError = error
+            }
         }
-        store.completeWithRetrieveError(with: retrieveError)
+        exp.fulfill()
+
+        store.completeWithRetrieveError(with: anyError)
         wait(for: [exp], timeout: 1.0)
 
-        XCTAssertEqual(store.receivedInvocations.count, 1)
+        XCTAssertEqual(receivedError! as NSError, anyError)
+
     }
+    
 
 
     //HELPERS
