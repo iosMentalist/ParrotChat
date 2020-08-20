@@ -23,7 +23,9 @@ class LocalUserRetriever : UserRetriever {
     }
 
     func retrieveAllUser(completion: @escaping RetrieveUserCompletion) {
-        store.retrieveAllUsers { result in
+        store.retrieveAllUsers { [weak self] result in
+            guard self != nil else {return}
+
             switch result {
             case .failure(let error):
                 completion(.failure(error))
@@ -83,6 +85,21 @@ class UserRetrievingTests: XCTestCase {
 
         XCTAssertEqual(store.receivedInvocations, [.retrieve])
         XCTAssertEqual(receivedUsers, users.map{$0.local})
+    }
+
+    func test_retrieve_doesNotCompleteWithErrorAfterSutHasBeenDeallocated() {
+        let store = UserStoreSpy()
+        var sut: LocalUserRetriever? = LocalUserRetriever(store)
+
+        var receivedRetrieveResults = [LocalUserRetriever.RetrieveUserResult]()
+        sut?.retrieveAllUser() {
+            receivedRetrieveResults.append($0)
+        }
+
+        sut = nil
+        store.completeWithRetrieveError(with: anyError())
+
+        XCTAssertTrue(receivedRetrieveResults.isEmpty)
     }
     
 
