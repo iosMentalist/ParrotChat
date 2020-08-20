@@ -50,8 +50,14 @@ class UserSaver {
     }
 
     func save(user:User,completion:@escaping(InsertionResult)->Void){
-        store.insert(user: user.toLocal()){_ in
-            completion(.success(()))
+        store.insert(user: user.toLocal()){result in
+            switch result {
+            case .success(()):
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+
         }
     }
 
@@ -70,10 +76,22 @@ class ParrotChatTests: XCTestCase {
     func test_save_withError(){
         let (sut,store) = makeSUT()
 
-        sut.save(user:anyUser().model){_ in }
-        store.completeWithInsertionError()
+        let exp = expectation(description: "Wait for save completion")
 
-        XCTAssertEqual(store.insertionErrors, 1)
+        let anyError =  NSError(domain: "", code: 1, userInfo: nil)
+        var receivedError : Error?
+        
+        sut.save(user:anyUser().model){result in
+            if case let Result.failure(error) = result {
+                receivedError = error
+            }
+        }
+        exp.fulfill()
+
+        store.completeWithInsertionError(withError: anyError)
+        wait(for: [exp], timeout: 1.0)
+
+        XCTAssertEqual(receivedError! as NSError, anyError)
     }
 
     func test_save_successfully(){
@@ -108,33 +126,26 @@ class ParrotChatTests: XCTestCase {
     }
 
     class UserStoreSpy : UserStore{
-
         enum ReceivedInvocation : Equatable{
             case insert(LocalUser)
         }
+        var receivedInvocations = [ReceivedInvocation]()
 
         private var insertionCompletions = [InsertionCompletion]()
 
-        var receivedInvocations = [ReceivedInvocation]()
-
-        private(set) var insertionErrors = 0
-
+        //MARK: User Store implemention
         func insert(user: LocalUser, completion: @escaping InsertionCompletion)  {
             insertionCompletions.append(completion)
             receivedInvocations.append(.insert(user))
-
-         }
-
-        func completeWithInsertionError(){
-            insertionErrors += 1
         }
 
-        func completeWithInsertionSuccess(user:LocalUser, atIndex:Int = 0){
-            insertionCompletions[atIndex](.success(()))
+        //MARK: Spy's functions
+        func completeWithInsertionError(withError error: Error, at index:Int = 0){
+            insertionCompletions[index](.failure(error))
         }
 
+        func completeWithInsertionSuccess(user:LocalUser, at index:Int = 0){
+            insertionCompletions[index](.success(()))
+        }
     }
-
-    
-
 }
