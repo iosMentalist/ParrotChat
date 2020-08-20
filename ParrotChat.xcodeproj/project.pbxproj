@@ -135,11 +135,9 @@
 		E64050C224ED150700F8D26C /* User */ = {
 			isa = PBXGroup;
 			children = (
-				E65A53F624EE780E002D88C8 /* User Local */,
 				E64050C324ED151900F8D26C /* User.swift */,
-				E65A540024EE7AC4002D88C8 /* UserSaver.swift */,
-				E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */,
-				E65A541024EF1684002D88C8 /* UserDeletion.swift */,
+				E65A541424EF1AD3002D88C8 /* User Features */,
+				E65A53F624EE780E002D88C8 /* User Local */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -169,6 +167,16 @@
 				E65A540824EE7F7C002D88C8 /* CommonHelpers.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		E65A541424EF1AD3002D88C8 /* User Features */ = {
+			isa = PBXGroup;
+			children = (
+				E65A540024EE7AC4002D88C8 /* UserSaver.swift */,
+				E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */,
+				E65A541024EF1684002D88C8 /* UserDeletion.swift */,
+			);
+			path = "User Features";
 			sourceTree = "<group>";
 		};
 		E68D9EB124ED1756005AEB83 /* Message */ = {
