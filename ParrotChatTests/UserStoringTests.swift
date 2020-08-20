@@ -7,7 +7,10 @@ import XCTest
 @testable import ParrotChat
 
 
-struct LocalUser {
+struct LocalUser : Equatable{
+    static func == (lhs: LocalUser, rhs: LocalUser) -> Bool {
+        return lhs.name == rhs.name
+    }
     var name : String
     var imageName : String
     var lastMessage : LocalMessage
@@ -19,7 +22,7 @@ struct LocalMessage {
 }
 class UserStore{
 
-    func insert(user:User, completion: @escaping (Result<Void, Error>) -> Void){
+    func insert(user:LocalUser, completion: @escaping (Result<Void, Error>) -> Void){
 
     }
 }
@@ -50,7 +53,7 @@ class ParrotChatTests: XCTestCase {
     func test_save_withError(){
         let (sut,store) = makeSUT()
 
-        sut.save(user:anyUser()){_ in }
+        sut.save(user:anyUser().model){_ in }
         store.completeWithInsertionError()
 
         XCTAssertEqual(store.insertionErrors, 1)
@@ -59,10 +62,10 @@ class ParrotChatTests: XCTestCase {
         let (sut,store) = makeSUT()
         let user = anyUser()
 
-        sut.save(user:user){_ in }
-        store.completeWithInsertionSuccess(user: user)
+        sut.save(user:user.model){_ in }
+        store.completeWithInsertionSuccess(user: user.local)
 
-        XCTAssertEqual(store.receivedInvocations, [.insert])
+        XCTAssertEqual(store.receivedInvocations, [.insert(user.local)])
     }
 
 
@@ -75,13 +78,16 @@ class ParrotChatTests: XCTestCase {
         return (sut,store)
     }
 
-    func anyUser() -> User{
-        return User(name: "user name", imageName: "image", lastMessage: Message(body: "body", date: Date(), isMyMessage: true))
+    func anyUser() -> (model:User,local:LocalUser){
+        let model =  User(name: "user name", imageName: "image", lastMessage: Message(body: "body", date: Date(), isMyMessage: true))
+
+        let local =  LocalUser(name: "user name", imageName: "image", lastMessage: LocalMessage(body: "body", date: Date(), isMyMessage: true))
+        return(model,local)
     }
 
     class UserStoreSpy : UserStore{
-        enum ReceivedInvocation {
-            case insert(User)
+        enum ReceivedInvocation : Equatable{
+            case insert(LocalUser)
         }
         var receivedInvocations = [ReceivedInvocation]()
 
@@ -91,7 +97,7 @@ class ParrotChatTests: XCTestCase {
             insertionErrors += 1
         }
 
-        func completeWithInsertionSuccess(user:User){
+        func completeWithInsertionSuccess(user:LocalUser){
             insert(user: user){_ in}
             receivedInvocations.append(.insert(user))
         }
