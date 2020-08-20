@@ -6,65 +6,6 @@
 import XCTest
 @testable import ParrotChat
 
-extension User{
-    func toLocal() -> LocalUser{
-        return LocalUser(name: self.name, imageName: self.imageName, lastMessage: self.lastMessage.toLocal())
-    }
-}
-
-extension Message{
-    func toLocal() -> LocalMessage{
-        return LocalMessage(body: self.body, date: self.date, isMyMessage: self.isMyMessage)
-    }
-}
-
-struct LocalUser : Equatable{
-    static func == (lhs: LocalUser, rhs: LocalUser) -> Bool {
-        return lhs.name == rhs.name
-    }
-    var name : String
-    var imageName : String
-    var lastMessage : LocalMessage
-}
-
-struct LocalMessage {
-    var body : String
-    var date : Date
-    var isMyMessage : Bool
-}
-
-protocol UserStore{
-    typealias InsertionCompletion =  (InsertionResult) -> Void
-    typealias InsertionResult = Result<Void, Error>
-
-    func insert(user:LocalUser, completion: @escaping InsertionCompletion)
-}
-
-class UserSaver {
-
-    let store : UserStore
-    typealias InsertionResult = Result<Void, Error>
-
-    init(_ store:UserStore){
-        self.store = store
-    }
-
-    func save(user:User,completion:@escaping(InsertionResult)->Void){
-        store.insert(user: user.toLocal()){result in
-            switch result {
-            case .success(()):
-                completion(.success(()))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-
-        }
-    }
-
-
-}
-
-
 class ParrotChatTests: XCTestCase {
 
     func test_init_doesntInvokeStoreWhenCreated(){
@@ -107,6 +48,8 @@ class ParrotChatTests: XCTestCase {
 
         XCTAssertEqual(store.receivedInvocations, [.insert(user.local)])
     }
+
+
 
 
 
