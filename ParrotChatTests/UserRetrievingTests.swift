@@ -11,7 +11,7 @@ protocol UserRetriever {
     typealias RetrieveUserResult = Result<[LocalUser],Error>
     typealias RetrieveUserCompletion = (RetrieveUserResult) -> Void
 
-    func retrieveAllUser(completion:@escaping RetrieveUserCompletion)
+    func retrieveAllUsers(completion:@escaping RetrieveUserCompletion)
 }
 
 class LocalUserRetriever : UserRetriever {
@@ -22,7 +22,7 @@ class LocalUserRetriever : UserRetriever {
         self.store = store
     }
 
-    func retrieveAllUser(completion: @escaping RetrieveUserCompletion) {
+    func retrieveAllUsers(completion: @escaping RetrieveUserCompletion) {
         store.retrieveAllUsers { [weak self] result in
             guard self != nil else {return}
 
@@ -53,7 +53,7 @@ class UserRetrievingTests: XCTestCase {
         let retrievedError =  anyError()
         var receivedError : Error?
 
-        sut.retrieveAllUser(){
+        sut.retrieveAllUsers(){
             if case let Result.failure(error) = $0 {
                 receivedError = error
             }
@@ -74,7 +74,7 @@ class UserRetrievingTests: XCTestCase {
         var receivedUsers = [LocalUser]()
 
         let exp = expectation(description: "Wait for save completion")
-        sut.retrieveAllUser(){
+        sut.retrieveAllUsers(){
             if case let Result.success(localUsers) = $0 {
                 receivedUsers = localUsers
             }
@@ -92,7 +92,7 @@ class UserRetrievingTests: XCTestCase {
         var sut: LocalUserRetriever? = LocalUserRetriever(store)
 
         var receivedRetrieveResults = [LocalUserRetriever.RetrieveUserResult]()
-        sut?.retrieveAllUser() {
+        sut?.retrieveAllUsers() {
             receivedRetrieveResults.append($0)
         }
 
