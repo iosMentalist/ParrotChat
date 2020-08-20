@@ -8,10 +8,8 @@ import XCTest
 
 class UserStore{
 
-    var receivedInvocatins = 0
-
     func insert(user:User, completion: @escaping (Result<Void, Error>) -> Void){
-        receivedInvocatins += 1
+
     }
 }
 
@@ -35,24 +33,25 @@ class ParrotChatTests: XCTestCase {
     func test_init_doesntInvokeStoreWhenCreated(){
 
         let (_, store) = makeSUT()
-        XCTAssertEqual(store.receivedInvocatins, 0)
+        XCTAssertEqual(store.receivedInvocations.count, 0)
     }
 
     func test_save_withError(){
         let (sut,store) = makeSUT()
 
-       sut.save(user:anyUser()){_ in }
-       store.completeWithInsertionError()
+        sut.save(user:anyUser()){_ in }
+        store.completeWithInsertionError()
 
-      XCTAssertEqual(store.insertionErrors, 1)
+        XCTAssertEqual(store.insertionErrors, 1)
     }
     func test_save_successfully(){
         let (sut,store) = makeSUT()
         let user = anyUser()
-       sut.save(user:user){_ in }
-       store.completeWithInsertionSuccess()
+        
+        sut.save(user:user){_ in }
+        store.completeWithInsertionSuccess(user: user)
 
-      XCTAssertEqual(store.receivedInvocatins, 1)
+        XCTAssertEqual(store.receivedInvocations.count, 1)
     }
 
 
@@ -70,6 +69,10 @@ class ParrotChatTests: XCTestCase {
     }
 
     class UserStoreSpy : UserStore{
+    enum ReceivedInvocation {
+        case insert(User)
+    }
+    var receivedInvocations = [ReceivedInvocation]()
 
         private(set) var insertionErrors = 0
 
@@ -77,9 +80,10 @@ class ParrotChatTests: XCTestCase {
             insertionErrors += 1
         }
 
-        func completeWithInsertionSuccess(){
-           receivedInvocatins += 1
-       }
+        func completeWithInsertionSuccess(user:User){
+            insert(user: user){_ in}
+            receivedInvocations.append(.insert(user))
+        }
 
     }
 
