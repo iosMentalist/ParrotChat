@@ -8,7 +8,7 @@ import Foundation
 public protocol UserRetriever {
 
     typealias RetrieveUserResult = Result<[LocalUser],Error>
-    typealias RetrieveUserCompletion = (RetrieveUserResult) -> Void
+    typealias RetrieveCompletion = (RetrieveUserResult) -> Void
 
-    func retrieveAllUsers(completion:@escaping RetrieveUserCompletion)
+    func retrieveAllUsers(completion:@escaping RetrieveCompletion)
 }

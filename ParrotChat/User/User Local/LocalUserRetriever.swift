@@ -14,7 +14,7 @@ public class LocalUserRetriever : UserRetriever {
         self.store = store
     }
 
-    public func retrieveAllUsers(completion: @escaping RetrieveUserCompletion) {
+    public func retrieveAllUsers(completion: @escaping RetrieveCompletion) {
         store.retrieveAllUsers { [weak self] result in
             guard self != nil else {return}
 
