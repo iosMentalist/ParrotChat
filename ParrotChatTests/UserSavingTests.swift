@@ -66,20 +66,13 @@ class UserSavingTests: XCTestCase {
 
 
     //MARK: - HELERPS
-    func makeSUT() -> (userSaver:UserSaver, store:UserStoreSpy){
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (userSaver:UserSaver, store:UserStoreSpy){
         let store = UserStoreSpy()
         let sut = LocalUserSaver(store)
-        trackForMemoryLeaks(store)
-        trackForMemoryLeaks(sut)
+        trackForMemoryLeaks(store,file: file, line: line)
+        trackForMemoryLeaks(sut,file: file, line:line)
         return (sut,store)
     }
-
-    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
-        }
-    }
-
 
     //helper function that sends back the same user for model and local boundaires
     func anyUser() -> (model:User,local:LocalUser){
@@ -89,29 +82,11 @@ class UserSavingTests: XCTestCase {
 
         return(model,local)
     }
-
-    //MARK: Spy
-    class UserStoreSpy : UserStore{
-        enum ReceivedInvocation : Equatable{
-            case insert(LocalUser)
-        }
-        var receivedInvocations = [ReceivedInvocation]()
-
-        private var insertionCompletions = [InsertionCompletion]()
-
-        //MARK: User Store implemention
-        func insert(user: LocalUser, completion: @escaping InsertionCompletion)  {
-            insertionCompletions.append(completion)
-            receivedInvocations.append(.insert(user))
-        }
-
-        //MARK: Spy's functions
-        func completeWithInsertionError(withError error: Error, at index:Int = 0){
-            insertionCompletions[index](.failure(error))
-        }
-
-        func completeWithInsertionSuccess(user:LocalUser, at index:Int = 0){
-            insertionCompletions[index](.success(()))
+}
+extension XCTestCase {
+    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
         }
     }
 }

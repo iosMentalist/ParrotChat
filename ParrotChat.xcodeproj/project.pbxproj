@@ -20,6 +20,9 @@
 		E65A53FC24EE7896002D88C8 /* LocalMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A53FB24EE7896002D88C8 /* LocalMessage.swift */; };
 		E65A53FF24EE7985002D88C8 /* LocalUserSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A53FE24EE7985002D88C8 /* LocalUserSaver.swift */; };
 		E65A540124EE7AC4002D88C8 /* UserSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540024EE7AC4002D88C8 /* UserSaver.swift */; };
+		E65A540324EE7E83002D88C8 /* UserRetrievingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540224EE7E83002D88C8 /* UserRetrievingTests.swift */; };
+		E65A540624EE7F3F002D88C8 /* UserStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540524EE7F3F002D88C8 /* UserStoreSpy.swift */; };
+		E65A540924EE7F7C002D88C8 /* CommonHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540824EE7F7C002D88C8 /* CommonHelpers.swift */; };
 		E68D9EB324ED1760005AEB83 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB224ED1760005AEB83 /* Message.swift */; };
 		E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB524ED186E005AEB83 /* Chat.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +55,9 @@
 		E65A53FB24EE7896002D88C8 /* LocalMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMessage.swift; sourceTree = "<group>"; };
 		E65A53FE24EE7985002D88C8 /* LocalUserSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserSaver.swift; sourceTree = "<group>"; };
 		E65A540024EE7AC4002D88C8 /* UserSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSaver.swift; sourceTree = "<group>"; };
+		E65A540224EE7E83002D88C8 /* UserRetrievingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRetrievingTests.swift; sourceTree = "<group>"; };
+		E65A540524EE7F3F002D88C8 /* UserStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoreSpy.swift; sourceTree = "<group>"; };
+		E65A540824EE7F7C002D88C8 /* CommonHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelpers.swift; sourceTree = "<group>"; };
 		E68D9EB224ED1760005AEB83 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E68D9EB524ED186E005AEB83 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E6F855DB24EC2AE900CB270D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -111,7 +117,9 @@
 		E61D9E5324EBFB0600A29695 /* ParrotChatTests */ = {
 			isa = PBXGroup;
 			children = (
+				E65A540724EE7F42002D88C8 /* Helper */,
 				E61D9E5424EBFB0600A29695 /* UserSavingTests.swift */,
+				E65A540224EE7E83002D88C8 /* UserRetrievingTests.swift */,
 				E61D9E5624EBFB0600A29695 /* Info.plist */,
 			);
 			path = ParrotChatTests;
@@ -143,6 +151,15 @@
 				E65A53FB24EE7896002D88C8 /* LocalMessage.swift */,
 			);
 			path = "Messgae Local";
+			sourceTree = "<group>";
+		};
+		E65A540724EE7F42002D88C8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E65A540524EE7F3F002D88C8 /* UserStoreSpy.swift */,
+				E65A540824EE7F7C002D88C8 /* CommonHelpers.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		E68D9EB124ED1756005AEB83 /* Message */ = {
@@ -292,7 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E65A540624EE7F3F002D88C8 /* UserStoreSpy.swift in Sources */,
 				E61D9E5524EBFB0600A29695 /* UserSavingTests.swift in Sources */,
+				E65A540924EE7F7C002D88C8 /* CommonHelpers.swift in Sources */,
+				E65A540324EE7E83002D88C8 /* UserRetrievingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
