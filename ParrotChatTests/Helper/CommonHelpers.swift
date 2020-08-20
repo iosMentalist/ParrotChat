@@ -15,3 +15,8 @@ func anyUser() -> (model:User,local:LocalUser){
 
     return(model,local)
 }
+
+func anyError() -> NSError{
+    return NSError(domain: "", code: 1, userInfo: nil)
+
+}

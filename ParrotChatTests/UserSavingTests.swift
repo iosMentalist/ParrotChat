@@ -19,7 +19,7 @@ class UserSavingTests: XCTestCase {
 
         let exp = expectation(description: "Wait for save completion")
 
-        let anyError =  NSError(domain: "", code: 1, userInfo: nil)
+        let insertError =  anyError()
         var receivedError : Error?
         
         sut.save(user:anyUser().model){
@@ -29,10 +29,10 @@ class UserSavingTests: XCTestCase {
         }
         exp.fulfill()
 
-        store.completeWithInsertionError(withError: anyError)
+        store.completeWithInsertionError(with: insertError)
         wait(for: [exp], timeout: 1.0)
 
-        XCTAssertEqual(receivedError! as NSError, anyError)
+        XCTAssertEqual(receivedError! as NSError, insertError)
     }
 
     func test_save_successfully(){
@@ -59,7 +59,7 @@ class UserSavingTests: XCTestCase {
         }
 
         sut = nil
-        store.completeWithInsertionError(withError:NSError(domain: "", code: 1, userInfo: nil))
+        store.completeWithInsertionError(with: anyError())
 
         XCTAssertTrue(receivedInsertResults.isEmpty)
     }

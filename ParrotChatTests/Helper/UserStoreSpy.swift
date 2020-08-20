@@ -29,7 +29,7 @@ class UserStoreSpy : UserStore {
     }
 
     //MARK: Spy's insert functions
-    func completeWithInsertionError(withError error: Error, at index:Int = 0){
+    func completeWithInsertionError(with error: Error, at index:Int = 0){
         insertionCompletions[index](.failure(error))
     }
 
