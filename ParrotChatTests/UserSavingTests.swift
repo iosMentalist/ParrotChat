@@ -4,7 +4,7 @@
 //
 
 import XCTest
-@testable import ParrotChat
+import ParrotChat
 
 class UserSavingTests: XCTestCase {
 
