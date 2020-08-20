@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct Message {
+public struct Message {
     var body : String
     var date : Date
     var isMyMessage : Bool

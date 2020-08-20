@@ -56,7 +56,7 @@ class ParrotChatTests: XCTestCase {
     //HELERPS
     func makeSUT() -> (userSaver:UserSaver, store:UserStoreSpy){
         let store = UserStoreSpy()
-        let sut = UserSaver(store)
+        let sut = LocalUserSaver(store)
 
         return (sut,store)
     }

@@ -4,16 +4,16 @@
 //  
 
 import Foundation
-public class UserSaver {
+
+public class LocalUserSaver : UserSaver {
 
     let store : UserStore
-    typealias InsertionResult = Result<Void, Error>
 
-    init(_ store:UserStore){
+    public init(_ store:UserStore){
         self.store = store
     }
 
-    func save(user:User,completion:@escaping(InsertionResult)->Void){
+    public func save(user:User,completion:@escaping(InsertionResult)->Void){
         store.insert(user: user.toLocal()){result in
             switch result {
             case .success(()):
