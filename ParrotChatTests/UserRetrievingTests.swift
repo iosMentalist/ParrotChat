@@ -64,6 +64,26 @@ class UserRetrievingTests: XCTestCase {
         XCTAssertEqual(receivedError! as NSError, retrievedError)
 
     }
+
+    func test_retrieve_successfully(){
+        let (sut,store) = makeSUT()
+
+        let users = [anyUser(),anyUser()]
+        var receivedUsers = [LocalUser]()
+
+        let exp = expectation(description: "Wait for save completion")
+        sut.retrieveAllUser(){
+            if case let Result.success(localUsers) = $0 {
+                receivedUsers = localUsers
+            }
+        }
+        exp.fulfill()
+        store.completeWithRetrieveSuccess(with: users.map{$0.local})
+        wait(for: [exp], timeout: 1.0)
+
+        XCTAssertEqual(store.receivedInvocations, [.retrieve])
+        XCTAssertEqual(receivedUsers, users.map{$0.local})
+    }
     
 
 

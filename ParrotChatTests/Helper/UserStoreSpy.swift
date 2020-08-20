@@ -42,4 +42,7 @@ class UserStoreSpy : UserStore {
         retrieveCompletions[index](.failure(error))
     }
 
+    func completeWithRetrieveSuccess(with users:[LocalUser], at index:Int = 0){
+        retrieveCompletions[index](.success(users))
+    }
 }
