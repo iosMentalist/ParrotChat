@@ -124,9 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				E65A540724EE7F42002D88C8 /* Helper */,
-				E61D9E5424EBFB0600A29695 /* UserSavingTests.swift */,
-				E65A540224EE7E83002D88C8 /* UserRetrievingTests.swift */,
-				E65A540E24EF15E5002D88C8 /* UserDeletionTests.swift */,
+				E65A541524EF1B9F002D88C8 /* User Tests */,
 				E61D9E5624EBFB0600A29695 /* Info.plist */,
 			);
 			path = ParrotChatTests;
@@ -177,6 +175,16 @@
 				E65A541024EF1684002D88C8 /* UserDeletion.swift */,
 			);
 			path = "User Features";
+			sourceTree = "<group>";
+		};
+		E65A541524EF1B9F002D88C8 /* User Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E61D9E5424EBFB0600A29695 /* UserSavingTests.swift */,
+				E65A540224EE7E83002D88C8 /* UserRetrievingTests.swift */,
+				E65A540E24EF15E5002D88C8 /* UserDeletionTests.swift */,
+			);
+			path = "User Tests";
 			sourceTree = "<group>";
 		};
 		E68D9EB124ED1756005AEB83 /* Message */ = {
