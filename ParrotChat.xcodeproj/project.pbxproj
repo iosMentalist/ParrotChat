@@ -26,6 +26,7 @@
 		E65A540D24EEC5FD002D88C8 /* UserRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */; };
 		E65A540F24EF15E5002D88C8 /* UserDeletionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540E24EF15E5002D88C8 /* UserDeletionTests.swift */; };
 		E65A541124EF1684002D88C8 /* UserDeletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A541024EF1684002D88C8 /* UserDeletion.swift */; };
+		E65A541D24EF2A86002D88C8 /* UserStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E65A541B24EF2A86002D88C8 /* UserStore.xcdatamodeld */; };
 		E68D9EB324ED1760005AEB83 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB224ED1760005AEB83 /* Message.swift */; };
 		E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB524ED186E005AEB83 /* Chat.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRetriever.swift; sourceTree = "<group>"; };
 		E65A540E24EF15E5002D88C8 /* UserDeletionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeletionTests.swift; sourceTree = "<group>"; };
 		E65A541024EF1684002D88C8 /* UserDeletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeletion.swift; sourceTree = "<group>"; };
+		E65A541C24EF2A86002D88C8 /* UserStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserStore.xcdatamodel; sourceTree = "<group>"; };
 		E68D9EB224ED1760005AEB83 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E68D9EB524ED186E005AEB83 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E6F855DB24EC2AE900CB270D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		E61D9E3C24EBFB0400A29695 /* ParrotChat */ = {
 			isa = PBXGroup;
 			children = (
+				E65A541624EF20B1002D88C8 /* CoreData */,
 				E61D9E3D24EBFB0400A29695 /* AppDelegate.swift */,
 				E61D9E3F24EBFB0400A29695 /* SceneDelegate.swift */,
 				E68D9EB724ED3274005AEB83 /* Views */,
@@ -185,6 +188,14 @@
 				E65A540E24EF15E5002D88C8 /* UserDeletionTests.swift */,
 			);
 			path = "User Tests";
+			sourceTree = "<group>";
+		};
+		E65A541624EF20B1002D88C8 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E65A541B24EF2A86002D88C8 /* UserStore.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		E68D9EB124ED1756005AEB83 /* Message */ = {
@@ -317,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61D9E4224EBFB0400A29695 /* ViewController.swift in Sources */,
+				E65A541D24EF2A86002D88C8 /* UserStore.xcdatamodeld in Sources */,
 				E65A53FC24EE7896002D88C8 /* LocalMessage.swift in Sources */,
 				E65A540124EE7AC4002D88C8 /* UserSaver.swift in Sources */,
 				E65A53F824EE7835002D88C8 /* UserStore.swift in Sources */,
@@ -595,6 +607,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E65A541B24EF2A86002D88C8 /* UserStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E65A541C24EF2A86002D88C8 /* UserStore.xcdatamodel */,
+			);
+			currentVersion = E65A541C24EF2A86002D88C8 /* UserStore.xcdatamodel */;
+			path = UserStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E61D9E3224EBFB0400A29695 /* Project object */;
 }
