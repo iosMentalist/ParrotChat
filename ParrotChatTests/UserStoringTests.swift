@@ -46,6 +46,14 @@ class ParrotChatTests: XCTestCase {
 
       XCTAssertEqual(store.insertionErrors, 1)
     }
+    func test_save_successfully(){
+        let (sut,store) = makeSUT()
+        let user = anyUser()
+       sut.save(user:user){_ in }
+       store.completeWithInsertionSuccess()
+
+      XCTAssertEqual(store.receivedInvocatins, 1)
+    }
 
 
 
@@ -68,6 +76,10 @@ class ParrotChatTests: XCTestCase {
         func completeWithInsertionError(){
             insertionErrors += 1
         }
+
+        func completeWithInsertionSuccess(){
+           receivedInvocatins += 1
+       }
 
     }
 
