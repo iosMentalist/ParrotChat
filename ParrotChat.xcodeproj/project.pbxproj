@@ -25,6 +25,9 @@
 		E65A540924EE7F7C002D88C8 /* CommonHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540824EE7F7C002D88C8 /* CommonHelpers.swift */; };
 		E65A540B24EEC5CE002D88C8 /* LocalUserRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540A24EEC5CE002D88C8 /* LocalUserRetriever.swift */; };
 		E65A540D24EEC5FD002D88C8 /* UserRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */; };
+		E65A540F24EF15E5002D88C8 /* UserDeletionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540E24EF15E5002D88C8 /* UserDeletionTests.swift */; };
+		E65A541124EF1684002D88C8 /* UserDeletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A541024EF1684002D88C8 /* UserDeletion.swift */; };
+		E65A541324EF17DD002D88C8 /* LocalUserDeleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A541224EF17DD002D88C8 /* LocalUserDeleter.swift */; };
 		E68D9EB324ED1760005AEB83 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB224ED1760005AEB83 /* Message.swift */; };
 		E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB524ED186E005AEB83 /* Chat.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +65,9 @@
 		E65A540824EE7F7C002D88C8 /* CommonHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelpers.swift; sourceTree = "<group>"; };
 		E65A540A24EEC5CE002D88C8 /* LocalUserRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserRetriever.swift; sourceTree = "<group>"; };
 		E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRetriever.swift; sourceTree = "<group>"; };
+		E65A540E24EF15E5002D88C8 /* UserDeletionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeletionTests.swift; sourceTree = "<group>"; };
+		E65A541024EF1684002D88C8 /* UserDeletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeletion.swift; sourceTree = "<group>"; };
+		E65A541224EF17DD002D88C8 /* LocalUserDeleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDeleter.swift; sourceTree = "<group>"; };
 		E68D9EB224ED1760005AEB83 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E68D9EB524ED186E005AEB83 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E6F855DB24EC2AE900CB270D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 				E65A540724EE7F42002D88C8 /* Helper */,
 				E61D9E5424EBFB0600A29695 /* UserSavingTests.swift */,
 				E65A540224EE7E83002D88C8 /* UserRetrievingTests.swift */,
+				E65A540E24EF15E5002D88C8 /* UserDeletionTests.swift */,
 				E61D9E5624EBFB0600A29695 /* Info.plist */,
 			);
 			path = ParrotChatTests;
@@ -136,6 +143,7 @@
 				E64050C324ED151900F8D26C /* User.swift */,
 				E65A540024EE7AC4002D88C8 /* UserSaver.swift */,
 				E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */,
+				E65A541024EF1684002D88C8 /* UserDeletion.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -147,6 +155,7 @@
 				E65A53F924EE7864002D88C8 /* LocalUser.swift */,
 				E65A53FE24EE7985002D88C8 /* LocalUserSaver.swift */,
 				E65A540A24EEC5CE002D88C8 /* LocalUserRetriever.swift */,
+				E65A541224EF17DD002D88C8 /* LocalUserDeleter.swift */,
 			);
 			path = "User Local";
 			sourceTree = "<group>";
@@ -303,7 +312,9 @@
 				E65A540124EE7AC4002D88C8 /* UserSaver.swift in Sources */,
 				E65A53F824EE7835002D88C8 /* UserStore.swift in Sources */,
 				E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */,
+				E65A541124EF1684002D88C8 /* UserDeletion.swift in Sources */,
 				E64050C424ED151900F8D26C /* User.swift in Sources */,
+				E65A541324EF17DD002D88C8 /* LocalUserDeleter.swift in Sources */,
 				E65A540D24EEC5FD002D88C8 /* UserRetriever.swift in Sources */,
 				E65A53FA24EE7864002D88C8 /* LocalUser.swift in Sources */,
 				E68D9EB324ED1760005AEB83 /* Message.swift in Sources */,
@@ -317,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E65A540F24EF15E5002D88C8 /* UserDeletionTests.swift in Sources */,
 				E65A540624EE7F3F002D88C8 /* UserStoreSpy.swift in Sources */,
 				E61D9E5524EBFB0600A29695 /* UserSavingTests.swift in Sources */,
 				E65A540924EE7F7C002D88C8 /* CommonHelpers.swift in Sources */,

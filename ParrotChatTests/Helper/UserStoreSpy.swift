@@ -8,13 +8,17 @@ import ParrotChat
 
 class UserStoreSpy : UserStore {
 
+
+
     enum ReceivedInvocation : Equatable{
         case insert(LocalUser)
         case retrieve
+        case delete
     }
     var receivedInvocations = [ReceivedInvocation]()
 
     private var insertionCompletions = [InsertionCompletion]()
+    private var deletionCompletions = [DeletionCompletion]()
     private var retrieveCompletions = [RetrieveCompletion]()
 
     //MARK: User Store implemention
@@ -28,6 +32,11 @@ class UserStoreSpy : UserStore {
         receivedInvocations.append(.retrieve)
     }
 
+    func delete(user: LocalUser, completion: @escaping DeletionCompletion) {
+        deletionCompletions.append(completion)
+        receivedInvocations.append(.delete)
+    }
+
     //MARK: Spy's insert functions
     func completeWithInsertionError(with error: Error, at index:Int = 0){
         insertionCompletions[index](.failure(error))
@@ -37,7 +46,6 @@ class UserStoreSpy : UserStore {
         insertionCompletions[index](.success(()))
     }
     //MARK: Spy's retrive functions
-
     func completeWithRetrieveError(with error: Error, at index:Int = 0){
         retrieveCompletions[index](.failure(error))
     }
@@ -45,4 +53,13 @@ class UserStoreSpy : UserStore {
     func completeWithRetrieveSuccess(with users:[LocalUser], at index:Int = 0){
         retrieveCompletions[index](.success(users))
     }
+    //MARK: Spy's delete functions
+    func completeWithDeletionError(with error: Error, at index:Int = 0){
+        deletionCompletions[index](.failure(error))
+    }
+
+    func completeWithDeletionSuccess(user:LocalUser, at index:Int = 0){
+        deletionCompletions[index](.success(()))
+    }
+
 }
