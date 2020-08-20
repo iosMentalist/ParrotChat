@@ -6,6 +6,17 @@
 import XCTest
 @testable import ParrotChat
 
+extension User{
+    func toLocal() -> LocalUser{
+        return LocalUser(name: self.name, imageName: self.imageName, lastMessage: self.lastMessage.toLocal())
+    }
+}
+
+extension Message{
+    func toLocal() -> LocalMessage{
+        return LocalMessage(body: self.body, date: self.date, isMyMessage: self.isMyMessage)
+    }
+}
 
 struct LocalUser : Equatable{
     static func == (lhs: LocalUser, rhs: LocalUser) -> Bool {
@@ -15,27 +26,33 @@ struct LocalUser : Equatable{
     var imageName : String
     var lastMessage : LocalMessage
 }
+
 struct LocalMessage {
     var body : String
     var date : Date
     var isMyMessage : Bool
 }
-class UserStore{
 
-    func insert(user:LocalUser, completion: @escaping (Result<Void, Error>) -> Void){
+protocol UserStore{
+    typealias InsertionCompletion =  (InsertionResult) -> Void
+    typealias InsertionResult = Result<Void, Error>
 
-    }
+    func insert(user:LocalUser, completion: @escaping InsertionCompletion)
 }
 
 class UserSaver {
 
     let store : UserStore
+    typealias InsertionResult = Result<Void, Error>
+
     init(_ store:UserStore){
         self.store = store
     }
 
-    func save(user:User,completion:@escaping(Result<Void,Error>)->Void){
-
+    func save(user:User,completion:@escaping(InsertionResult)->Void){
+        store.insert(user: user.toLocal()){_ in
+            completion(.success(()))
+        }
     }
 
 
@@ -58,12 +75,17 @@ class ParrotChatTests: XCTestCase {
 
         XCTAssertEqual(store.insertionErrors, 1)
     }
+
     func test_save_successfully(){
         let (sut,store) = makeSUT()
         let user = anyUser()
+        let exp = expectation(description: "Wait for save completion")
 
-        sut.save(user:user.model){_ in }
+        sut.save(user:user.model){_ in
+            exp.fulfill()
+        }
         store.completeWithInsertionSuccess(user: user.local)
+        wait(for: [exp], timeout: 1.0)
 
         XCTAssertEqual(store.receivedInvocations, [.insert(user.local)])
     }
@@ -86,22 +108,33 @@ class ParrotChatTests: XCTestCase {
     }
 
     class UserStoreSpy : UserStore{
+
         enum ReceivedInvocation : Equatable{
             case insert(LocalUser)
         }
+
+        private var insertionCompletions = [InsertionCompletion]()
+
         var receivedInvocations = [ReceivedInvocation]()
 
         private(set) var insertionErrors = 0
+
+        func insert(user: LocalUser, completion: @escaping InsertionCompletion)  {
+            insertionCompletions.append(completion)
+            receivedInvocations.append(.insert(user))
+
+         }
 
         func completeWithInsertionError(){
             insertionErrors += 1
         }
 
-        func completeWithInsertionSuccess(user:LocalUser){
-            insert(user: user){_ in}
-            receivedInvocations.append(.insert(user))
+        func completeWithInsertionSuccess(user:LocalUser, atIndex:Int = 0){
+            insertionCompletions[atIndex](.success(()))
         }
 
     }
+
+    
 
 }

@@ -87,9 +87,9 @@
 		E61D9E3C24EBFB0400A29695 /* ParrotChat */ = {
 			isa = PBXGroup;
 			children = (
-				E68D9EB724ED3274005AEB83 /* Views */,
 				E61D9E3D24EBFB0400A29695 /* AppDelegate.swift */,
 				E61D9E3F24EBFB0400A29695 /* SceneDelegate.swift */,
+				E68D9EB724ED3274005AEB83 /* Views */,
 				E68D9EB424ED1863005AEB83 /* Chat */,
 				E68D9EB124ED1756005AEB83 /* Message */,
 				E64050C224ED150700F8D26C /* User */,
