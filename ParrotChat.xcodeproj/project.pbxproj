@@ -23,6 +23,8 @@
 		E65A540324EE7E83002D88C8 /* UserRetrievingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540224EE7E83002D88C8 /* UserRetrievingTests.swift */; };
 		E65A540624EE7F3F002D88C8 /* UserStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540524EE7F3F002D88C8 /* UserStoreSpy.swift */; };
 		E65A540924EE7F7C002D88C8 /* CommonHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540824EE7F7C002D88C8 /* CommonHelpers.swift */; };
+		E65A540B24EEC5CE002D88C8 /* LocalUserRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540A24EEC5CE002D88C8 /* LocalUserRetriever.swift */; };
+		E65A540D24EEC5FD002D88C8 /* UserRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */; };
 		E68D9EB324ED1760005AEB83 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB224ED1760005AEB83 /* Message.swift */; };
 		E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB524ED186E005AEB83 /* Chat.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		E65A540224EE7E83002D88C8 /* UserRetrievingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRetrievingTests.swift; sourceTree = "<group>"; };
 		E65A540524EE7F3F002D88C8 /* UserStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoreSpy.swift; sourceTree = "<group>"; };
 		E65A540824EE7F7C002D88C8 /* CommonHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelpers.swift; sourceTree = "<group>"; };
+		E65A540A24EEC5CE002D88C8 /* LocalUserRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserRetriever.swift; sourceTree = "<group>"; };
+		E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRetriever.swift; sourceTree = "<group>"; };
 		E68D9EB224ED1760005AEB83 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E68D9EB524ED186E005AEB83 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E6F855DB24EC2AE900CB270D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				E65A53F624EE780E002D88C8 /* User Local */,
 				E64050C324ED151900F8D26C /* User.swift */,
 				E65A540024EE7AC4002D88C8 /* UserSaver.swift */,
+				E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				E65A53F724EE7835002D88C8 /* UserStore.swift */,
 				E65A53F924EE7864002D88C8 /* LocalUser.swift */,
 				E65A53FE24EE7985002D88C8 /* LocalUserSaver.swift */,
+				E65A540A24EEC5CE002D88C8 /* LocalUserRetriever.swift */,
 			);
 			path = "User Local";
 			sourceTree = "<group>";
@@ -292,11 +298,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61D9E4224EBFB0400A29695 /* ViewController.swift in Sources */,
+				E65A540B24EEC5CE002D88C8 /* LocalUserRetriever.swift in Sources */,
 				E65A53FC24EE7896002D88C8 /* LocalMessage.swift in Sources */,
 				E65A540124EE7AC4002D88C8 /* UserSaver.swift in Sources */,
 				E65A53F824EE7835002D88C8 /* UserStore.swift in Sources */,
 				E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */,
 				E64050C424ED151900F8D26C /* User.swift in Sources */,
+				E65A540D24EEC5FD002D88C8 /* UserRetriever.swift in Sources */,
 				E65A53FA24EE7864002D88C8 /* LocalUser.swift in Sources */,
 				E68D9EB324ED1760005AEB83 /* Message.swift in Sources */,
 				E61D9E3E24EBFB0400A29695 /* AppDelegate.swift in Sources */,

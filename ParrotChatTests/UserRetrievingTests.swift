@@ -6,38 +6,6 @@
 import XCTest
 import ParrotChat
 
-protocol UserRetriever {
-
-    typealias RetrieveUserResult = Result<[LocalUser],Error>
-    typealias RetrieveUserCompletion = (RetrieveUserResult) -> Void
-
-    func retrieveAllUsers(completion:@escaping RetrieveUserCompletion)
-}
-
-class LocalUserRetriever : UserRetriever {
-
-    let store : UserStore
-
-    public init(_ store:UserStore){
-        self.store = store
-    }
-
-    func retrieveAllUsers(completion: @escaping RetrieveUserCompletion) {
-        store.retrieveAllUsers { [weak self] result in
-            guard self != nil else {return}
-
-            switch result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let users):
-                completion(.success(users))
-
-            }
-        }        
-    }
-}
-
-
 class UserRetrievingTests: XCTestCase {
 
     func test_init_doesntInvokeStoreWhenCreated(){
@@ -105,7 +73,7 @@ class UserRetrievingTests: XCTestCase {
 
 
     //HELPERS
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (userSaver:UserRetriever, store:UserStoreSpy){
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (userSaver: UserRetriever, store:UserStoreSpy){
         let store = UserStoreSpy()
         let sut = LocalUserRetriever(store)
         trackForMemoryLeaks(store,file: file, line: line)
