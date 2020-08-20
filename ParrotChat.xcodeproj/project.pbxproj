@@ -13,7 +13,7 @@
 		E61D9E4524EBFB0400A29695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4324EBFB0400A29695 /* Main.storyboard */; };
 		E61D9E4724EBFB0600A29695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4624EBFB0600A29695 /* Assets.xcassets */; };
 		E61D9E4A24EBFB0600A29695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4824EBFB0600A29695 /* LaunchScreen.storyboard */; };
-		E61D9E5524EBFB0600A29695 /* UserStoringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D9E5424EBFB0600A29695 /* UserStoringTests.swift */; };
+		E61D9E5524EBFB0600A29695 /* UserSavingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D9E5424EBFB0600A29695 /* UserSavingTests.swift */; };
 		E64050C424ED151900F8D26C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64050C324ED151900F8D26C /* User.swift */; };
 		E65A53F824EE7835002D88C8 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A53F724EE7835002D88C8 /* UserStore.swift */; };
 		E65A53FA24EE7864002D88C8 /* LocalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A53F924EE7864002D88C8 /* LocalUser.swift */; };
@@ -44,7 +44,7 @@
 		E61D9E4924EBFB0600A29695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E61D9E4B24EBFB0600A29695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E61D9E5024EBFB0600A29695 /* ParrotChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParrotChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E61D9E5424EBFB0600A29695 /* UserStoringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoringTests.swift; sourceTree = "<group>"; };
+		E61D9E5424EBFB0600A29695 /* UserSavingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSavingTests.swift; sourceTree = "<group>"; };
 		E61D9E5624EBFB0600A29695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E64050C324ED151900F8D26C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E65A53F724EE7835002D88C8 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		E61D9E5324EBFB0600A29695 /* ParrotChatTests */ = {
 			isa = PBXGroup;
 			children = (
-				E61D9E5424EBFB0600A29695 /* UserStoringTests.swift */,
+				E61D9E5424EBFB0600A29695 /* UserSavingTests.swift */,
 				E61D9E5624EBFB0600A29695 /* Info.plist */,
 			);
 			path = ParrotChatTests;
@@ -292,7 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E61D9E5524EBFB0600A29695 /* UserStoringTests.swift in Sources */,
+				E61D9E5524EBFB0600A29695 /* UserSavingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

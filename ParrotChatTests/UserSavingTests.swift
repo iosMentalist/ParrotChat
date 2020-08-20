@@ -6,7 +6,7 @@
 import XCTest
 @testable import ParrotChat
 
-class ParrotChatTests: XCTestCase {
+class UserSavingTests: XCTestCase {
 
     func test_init_doesntInvokeStoreWhenCreated(){
 
