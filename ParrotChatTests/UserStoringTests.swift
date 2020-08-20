@@ -50,24 +50,32 @@ class ParrotChatTests: XCTestCase {
     }
 
 
-
-
-
-    //HELERPS
+    //MARK: - HELERPS
     func makeSUT() -> (userSaver:UserSaver, store:UserStoreSpy){
         let store = UserStoreSpy()
         let sut = LocalUserSaver(store)
-
+        trackForMemoryLeaks(store)
+        trackForMemoryLeaks(sut)
         return (sut,store)
     }
 
+    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
+        }
+    }
+
+
+    //helper function that sends back the same user for model and local boundaires
     func anyUser() -> (model:User,local:LocalUser){
         let model =  User(name: "user name", imageName: "image", lastMessage: Message(body: "body", date: Date(), isMyMessage: true))
 
         let local =  LocalUser(name: "user name", imageName: "image", lastMessage: LocalMessage(body: "body", date: Date(), isMyMessage: true))
+
         return(model,local)
     }
 
+    //MARK: Spy
     class UserStoreSpy : UserStore{
         enum ReceivedInvocation : Equatable{
             case insert(LocalUser)
