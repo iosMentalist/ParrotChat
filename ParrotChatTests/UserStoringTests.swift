@@ -22,8 +22,8 @@ class ParrotChatTests: XCTestCase {
         let anyError =  NSError(domain: "", code: 1, userInfo: nil)
         var receivedError : Error?
         
-        sut.save(user:anyUser().model){result in
-            if case let Result.failure(error) = result {
+        sut.save(user:anyUser().model){
+            if case let Result.failure(error) = $0 {
                 receivedError = error
             }
         }
@@ -47,6 +47,21 @@ class ParrotChatTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
 
         XCTAssertEqual(store.receivedInvocations, [.insert(user.local)])
+    }
+
+    func test_save_doesNotCompleteWithErrorAfterSutHasBeenDeallocated() {
+        let store = UserStoreSpy()
+        var sut: LocalUserSaver? = LocalUserSaver(store)
+
+        var receivedInsertResults = [LocalUserSaver.InsertionResult]()
+        sut?.save(user:anyUser().model) {
+            receivedInsertResults.append($0)
+        }
+
+        sut = nil
+        store.completeWithInsertionError(withError:NSError(domain: "", code: 1, userInfo: nil))
+
+        XCTAssertTrue(receivedInsertResults.isEmpty)
     }
 
 

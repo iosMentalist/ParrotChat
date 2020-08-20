@@ -14,7 +14,11 @@ public class LocalUserSaver : UserSaver {
     }
 
     public func save(user:User,completion:@escaping(InsertionResult)->Void){
-        store.insert(user: user.toLocal()){result in
+
+        store.insert(user: user.toLocal()){[weak self] result in
+            guard self != nil else { return }
+
+
             switch result {
             case .success(()):
                 completion(.success(()))
