@@ -73,15 +73,6 @@ class UserSavingTests: XCTestCase {
         trackForMemoryLeaks(sut,file: file, line:line)
         return (sut,store)
     }
-
-    //helper function that sends back the same user for model and local boundaires
-    func anyUser() -> (model:User,local:LocalUser){
-        let model =  User(name: "user name", imageName: "image", lastMessage: Message(body: "body", date: Date(), isMyMessage: true))
-
-        let local =  LocalUser(name: "user name", imageName: "image", lastMessage: LocalMessage(body: "body", date: Date(), isMyMessage: true))
-
-        return(model,local)
-    }
 }
 extension XCTestCase {
     func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
