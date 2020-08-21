@@ -1,9 +1,6 @@
 //
-//  AppDelegate.swift
-//  ParrotChat
-//
-//  Created by Shady Kahaleh on 8/18/20.
-//  Copyright © 2020 Shady Kahaleh. All rights reserved.
+//  Created by Shady
+//  All rights reserved.
 //
 
 import UIKit

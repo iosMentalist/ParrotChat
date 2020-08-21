@@ -30,6 +30,7 @@
 		E65A542224EF2CC9002D88C8 /* ManagedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A542124EF2CC9002D88C8 /* ManagedUser.swift */; };
 		E65A542424EF2D0B002D88C8 /* ManagedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A542324EF2D0B002D88C8 /* ManagedMessage.swift */; };
 		E66A27CF24F0653D0097B163 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E66A27CD24F0653D0097B163 /* Store.xcdatamodeld */; };
+		E66A27D124F065AF0097B163 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66A27D024F065AF0097B163 /* CoreDataStore.swift */; };
 		E68D9EB324ED1760005AEB83 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB224ED1760005AEB83 /* Message.swift */; };
 		E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB524ED186E005AEB83 /* Chat.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		E65A542124EF2CC9002D88C8 /* ManagedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedUser.swift; sourceTree = "<group>"; };
 		E65A542324EF2D0B002D88C8 /* ManagedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedMessage.swift; sourceTree = "<group>"; };
 		E66A27CE24F0653D0097B163 /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
+		E66A27D024F065AF0097B163 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		E68D9EB224ED1760005AEB83 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E68D9EB524ED186E005AEB83 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E6F855DB24EC2AE900CB270D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		E65A541624EF20B1002D88C8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				E66A27D024F065AF0097B163 /* CoreDataStore.swift */,
 				E66A27CD24F0653D0097B163 /* Store.xcdatamodeld */,
 				E65A541E24EF2C24002D88C8 /* Managed Objects */,
 			);
@@ -344,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E66A27D124F065AF0097B163 /* CoreDataStore.swift in Sources */,
 				E61D9E4224EBFB0400A29695 /* ViewController.swift in Sources */,
 				E65A542024EF2C36002D88C8 /* ManagedChat.swift in Sources */,
 				E65A542424EF2D0B002D88C8 /* ManagedMessage.swift in Sources */,
