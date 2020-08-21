@@ -6,8 +6,8 @@
 import Foundation
 
 struct Chat  {
-    var chatID : Double?
-    var user : User?
-    var messages : [Message]?
-    var date : Date?
+    var id : UUID
+    var user : User
+    var messages : [Message]
+    var date : Date
 }
