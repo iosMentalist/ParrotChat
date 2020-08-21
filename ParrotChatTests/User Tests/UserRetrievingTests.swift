@@ -57,9 +57,9 @@ class UserRetrievingTests: XCTestCase {
 
     func test_retrieve_doesNotCompleteWithErrorAfterSutHasBeenDeallocated() {
         let store = UserStoreSpy()
-        var sut: LocalUserRetriever? = LocalUserRetriever(store)
+        var sut: LocalUserFeatures? = LocalUserFeatures(store)
 
-        var receivedRetrieveResults = [LocalUserRetriever.RetrieveUserResult]()
+        var receivedRetrieveResults = [LocalUserFeatures.RetrieveUserResult]()
         sut?.retrieveAllUsers() {
             receivedRetrieveResults.append($0)
         }
@@ -75,7 +75,7 @@ class UserRetrievingTests: XCTestCase {
     //HELPERS
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (userSaver: UserRetriever, store:UserStoreSpy){
         let store = UserStoreSpy()
-        let sut = LocalUserRetriever(store)
+        let sut = LocalUserFeatures(store)
         trackForMemoryLeaks(store,file: file, line: line)
         trackForMemoryLeaks(sut,file: file, line:line)
         return (sut,store)

@@ -51,9 +51,9 @@ class UserDeletionTests: XCTestCase {
 
     func test_delete_doesNotCompleteWithErrorAfterSutHasBeenDeallocated() {
         let store = UserStoreSpy()
-        var sut: LocalUserDeleter? = LocalUserDeleter(store)
+        var sut: LocalUserFeatures? = LocalUserFeatures(store)
 
-        var receivedDeleteResults = [LocalUserDeleter.DeletionResult]()
+        var receivedDeleteResults = [LocalUserFeatures.DeletionResult]()
         sut?.delete(user:anyUser().model) {
             receivedDeleteResults.append($0)
         }
@@ -69,7 +69,7 @@ class UserDeletionTests: XCTestCase {
     //MARK: - HELERPS
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (userDeleter:UserDeleter, store:UserStoreSpy){
         let store = UserStoreSpy()
-        let sut = LocalUserDeleter(store)
+        let sut = LocalUserFeatures(store)
         trackForMemoryLeaks(store,file: file, line: line)
         trackForMemoryLeaks(sut,file: file, line:line)
         return (sut,store)

@@ -51,9 +51,9 @@ class UserSavingTests: XCTestCase {
 
     func test_save_doesNotCompleteWithErrorAfterSutHasBeenDeallocated() {
         let store = UserStoreSpy()
-        var sut: LocalUserSaver? = LocalUserSaver(store)
+        var sut: LocalUserFeatures? = LocalUserFeatures(store)
 
-        var receivedInsertResults = [LocalUserSaver.InsertionResult]()
+        var receivedInsertResults = [LocalUserFeatures.InsertionResult]()
         sut?.save(user:anyUser().model) {
             receivedInsertResults.append($0)
         }
@@ -68,7 +68,7 @@ class UserSavingTests: XCTestCase {
     //MARK: - HELERPS
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (userSaver:UserSaver, store:UserStoreSpy){
         let store = UserStoreSpy()
-        let sut = LocalUserSaver(store)
+        let sut = LocalUserFeatures(store)
         trackForMemoryLeaks(store,file: file, line: line)
         trackForMemoryLeaks(sut,file: file, line:line)
         return (sut,store)
