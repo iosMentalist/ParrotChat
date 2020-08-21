@@ -12,3 +12,15 @@ class ManagedChat: NSManagedObject {
     @NSManaged var messages: [ManagedMessage]
     @NSManaged var date: Date
 }
+
+extension ManagedChat {
+    static func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedChat {
+        return ManagedChat(context: context)
+    }
+
+    static func find(context: NSManagedObjectContext) throws -> [ManagedChat]? {
+        let request = NSFetchRequest<ManagedChat>(entityName: entity().name!)
+        request.returnsObjectsAsFaults = false
+        return try context.fetch(request)
+    }
+}

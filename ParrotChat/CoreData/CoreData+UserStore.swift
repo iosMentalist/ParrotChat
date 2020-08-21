@@ -3,6 +3,7 @@
 import Foundation
 
 extension CoreDataStore : UserStore {
+    
     public func insert(user: LocalUser, completion: @escaping InsertionCompletion) {
         perform { context in
             completion( InsertionResult{
