@@ -14,6 +14,13 @@
 		E61D9E4724EBFB0600A29695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4624EBFB0600A29695 /* Assets.xcassets */; };
 		E61D9E4A24EBFB0600A29695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E61D9E4824EBFB0600A29695 /* LaunchScreen.storyboard */; };
 		E61D9E5524EBFB0600A29695 /* UserSavingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D9E5424EBFB0600A29695 /* UserSavingTests.swift */; };
+		E63D015B24F07C10007CC12B /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D015A24F07C10007CC12B /* MessageStore.swift */; };
+		E63D015D24F07C71007CC12B /* MessageFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D015C24F07C71007CC12B /* MessageFeatures.swift */; };
+		E63D015F24F07CEF007CC12B /* LocalMessageFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D015E24F07CEF007CC12B /* LocalMessageFeatures.swift */; };
+		E63D017D24F07EA5007CC12B /* ChatStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D017924F07EA5007CC12B /* ChatStore.swift */; };
+		E63D017E24F07EA5007CC12B /* LocalChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D017A24F07EA5007CC12B /* LocalChat.swift */; };
+		E63D017F24F07EA5007CC12B /* LocalChatFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D017B24F07EA5007CC12B /* LocalChatFeatures.swift */; };
+		E63D018024F07EA5007CC12B /* ChatFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D017C24F07EA5007CC12B /* ChatFeatures.swift */; };
 		E64050C424ED151900F8D26C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64050C324ED151900F8D26C /* User.swift */; };
 		E65A53F824EE7835002D88C8 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A53F724EE7835002D88C8 /* UserStore.swift */; };
 		E65A53FA24EE7864002D88C8 /* LocalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A53F924EE7864002D88C8 /* LocalUser.swift */; };
@@ -59,6 +66,13 @@
 		E61D9E5024EBFB0600A29695 /* ParrotChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParrotChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E61D9E5424EBFB0600A29695 /* UserSavingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSavingTests.swift; sourceTree = "<group>"; };
 		E61D9E5624EBFB0600A29695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E63D015A24F07C10007CC12B /* MessageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStore.swift; sourceTree = "<group>"; };
+		E63D015C24F07C71007CC12B /* MessageFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFeatures.swift; sourceTree = "<group>"; };
+		E63D015E24F07CEF007CC12B /* LocalMessageFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMessageFeatures.swift; sourceTree = "<group>"; };
+		E63D017924F07EA5007CC12B /* ChatStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatStore.swift; sourceTree = "<group>"; };
+		E63D017A24F07EA5007CC12B /* LocalChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChat.swift; sourceTree = "<group>"; };
+		E63D017B24F07EA5007CC12B /* LocalChatFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChatFeatures.swift; sourceTree = "<group>"; };
+		E63D017C24F07EA5007CC12B /* ChatFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFeatures.swift; sourceTree = "<group>"; };
 		E64050C324ED151900F8D26C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E65A53F724EE7835002D88C8 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		E65A53F924EE7864002D88C8 /* LocalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUser.swift; sourceTree = "<group>"; };
@@ -145,32 +159,46 @@
 			path = ParrotChatTests;
 			sourceTree = "<group>";
 		};
+		E63D016824F07DE1007CC12B /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				E63D017C24F07EA5007CC12B /* ChatFeatures.swift */,
+				E63D017924F07EA5007CC12B /* ChatStore.swift */,
+				E63D017A24F07EA5007CC12B /* LocalChat.swift */,
+				E63D017B24F07EA5007CC12B /* LocalChatFeatures.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
 		E64050C224ED150700F8D26C /* User */ = {
 			isa = PBXGroup;
 			children = (
 				E64050C324ED151900F8D26C /* User.swift */,
 				E65A541424EF1AD3002D88C8 /* User Features */,
-				E65A53F624EE780E002D88C8 /* User Local */,
+				E65A53F624EE780E002D88C8 /* Local */,
 			);
 			path = User;
 			sourceTree = "<group>";
 		};
-		E65A53F624EE780E002D88C8 /* User Local */ = {
+		E65A53F624EE780E002D88C8 /* Local */ = {
 			isa = PBXGroup;
 			children = (
 				E65A53F724EE7835002D88C8 /* UserStore.swift */,
 				E65A53F924EE7864002D88C8 /* LocalUser.swift */,
 				E65A53FE24EE7985002D88C8 /* LocalUserFeatures.swift */,
 			);
-			path = "User Local";
+			path = Local;
 			sourceTree = "<group>";
 		};
-		E65A53FD24EE789B002D88C8 /* Messgae Local */ = {
+		E65A53FD24EE789B002D88C8 /* Local */ = {
 			isa = PBXGroup;
 			children = (
 				E65A53FB24EE7896002D88C8 /* LocalMessage.swift */,
+				E63D015A24F07C10007CC12B /* MessageStore.swift */,
+				E63D015C24F07C71007CC12B /* MessageFeatures.swift */,
+				E63D015E24F07CEF007CC12B /* LocalMessageFeatures.swift */,
 			);
-			path = "Messgae Local";
+			path = Local;
 			sourceTree = "<group>";
 		};
 		E65A540724EE7F42002D88C8 /* Helper */ = {
@@ -228,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				E68D9EB224ED1760005AEB83 /* Message.swift */,
-				E65A53FD24EE789B002D88C8 /* Messgae Local */,
+				E65A53FD24EE789B002D88C8 /* Local */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -237,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				E68D9EB524ED186E005AEB83 /* Chat.swift */,
+				E63D016824F07DE1007CC12B /* Local */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -356,13 +385,18 @@
 				E66A27D124F065AF0097B163 /* CoreDataStore.swift in Sources */,
 				E61D9E4224EBFB0400A29695 /* ViewController.swift in Sources */,
 				E65A542024EF2C36002D88C8 /* ManagedChat.swift in Sources */,
+				E63D015B24F07C10007CC12B /* MessageStore.swift in Sources */,
 				E65A542424EF2D0B002D88C8 /* ManagedMessage.swift in Sources */,
 				E65A53FC24EE7896002D88C8 /* LocalMessage.swift in Sources */,
+				E63D017F24F07EA5007CC12B /* LocalChatFeatures.swift in Sources */,
+				E63D015D24F07C71007CC12B /* MessageFeatures.swift in Sources */,
+				E63D017D24F07EA5007CC12B /* ChatStore.swift in Sources */,
 				E65A540124EE7AC4002D88C8 /* UserSaver.swift in Sources */,
 				E65A53F824EE7835002D88C8 /* UserStore.swift in Sources */,
 				E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */,
 				E65A541124EF1684002D88C8 /* UserDeletion.swift in Sources */,
 				E65A542224EF2CC9002D88C8 /* ManagedUser.swift in Sources */,
+				E63D017E24F07EA5007CC12B /* LocalChat.swift in Sources */,
 				E64050C424ED151900F8D26C /* User.swift in Sources */,
 				E65A540D24EEC5FD002D88C8 /* UserRetriever.swift in Sources */,
 				E65A53FA24EE7864002D88C8 /* LocalUser.swift in Sources */,
@@ -371,7 +405,9 @@
 				E61D9E3E24EBFB0400A29695 /* AppDelegate.swift in Sources */,
 				E66A27D324F066140097B163 /* CoreDataHelpers.swift in Sources */,
 				E65A53FF24EE7985002D88C8 /* LocalUserFeatures.swift in Sources */,
+				E63D018024F07EA5007CC12B /* ChatFeatures.swift in Sources */,
 				E61D9E4024EBFB0400A29695 /* SceneDelegate.swift in Sources */,
+				E63D015F24F07CEF007CC12B /* LocalMessageFeatures.swift in Sources */,
 				E66A27CF24F0653D0097B163 /* Store.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
