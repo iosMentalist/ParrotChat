@@ -22,7 +22,7 @@ extension NSPersistentContainer {
 extension NSManagedObjectModel {
 	static func with(name: String, in bundle: Bundle) -> NSManagedObjectModel? {
 		return bundle
-			.url(forResource: name, withExtension: "mom")
+			.url(forResource: name, withExtension: "momd")
 			.flatMap { NSManagedObjectModel(contentsOf: $0) }
 	}
 }

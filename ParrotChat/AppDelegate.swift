@@ -11,8 +11,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        testInsertUser()
+
         return true
+    }
+
+    func testInsertUser(){
+        let coredatastore = try! CoreDataStore(storeName: "Store.sqlite")
+        coredatastore.insert(user: LocalUser.init(name: "helloe", imageName: "ddd", lastMessage: LocalMessage(body: "ddd", date: Date(), isMyMessage: true))) { (result) in
+            switch result {
+            case .success():
+                debugPrint("testInsertUser success")
+            case.failure(let error):
+                debugPrint("testInsertUser error \(error)")
+            }
+        }
     }
 
     // MARK: UISceneSession Lifecycle
