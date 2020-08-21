@@ -26,7 +26,10 @@
 		E65A540D24EEC5FD002D88C8 /* UserRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */; };
 		E65A540F24EF15E5002D88C8 /* UserDeletionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A540E24EF15E5002D88C8 /* UserDeletionTests.swift */; };
 		E65A541124EF1684002D88C8 /* UserDeletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A541024EF1684002D88C8 /* UserDeletion.swift */; };
-		E65A541D24EF2A86002D88C8 /* UserStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E65A541B24EF2A86002D88C8 /* UserStore.xcdatamodeld */; };
+		E65A542024EF2C36002D88C8 /* ManagedChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A541F24EF2C36002D88C8 /* ManagedChat.swift */; };
+		E65A542224EF2CC9002D88C8 /* ManagedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A542124EF2CC9002D88C8 /* ManagedUser.swift */; };
+		E65A542424EF2D0B002D88C8 /* ManagedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A542324EF2D0B002D88C8 /* ManagedMessage.swift */; };
+		E65A542A24EFEAA5002D88C8 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E65A542824EFEAA5002D88C8 /* Store.xcdatamodeld */; };
 		E68D9EB324ED1760005AEB83 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB224ED1760005AEB83 /* Message.swift */; };
 		E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68D9EB524ED186E005AEB83 /* Chat.swift */; };
 /* End PBXBuildFile section */
@@ -65,7 +68,10 @@
 		E65A540C24EEC5FD002D88C8 /* UserRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRetriever.swift; sourceTree = "<group>"; };
 		E65A540E24EF15E5002D88C8 /* UserDeletionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeletionTests.swift; sourceTree = "<group>"; };
 		E65A541024EF1684002D88C8 /* UserDeletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeletion.swift; sourceTree = "<group>"; };
-		E65A541C24EF2A86002D88C8 /* UserStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserStore.xcdatamodel; sourceTree = "<group>"; };
+		E65A541F24EF2C36002D88C8 /* ManagedChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedChat.swift; sourceTree = "<group>"; };
+		E65A542124EF2CC9002D88C8 /* ManagedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedUser.swift; sourceTree = "<group>"; };
+		E65A542324EF2D0B002D88C8 /* ManagedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedMessage.swift; sourceTree = "<group>"; };
+		E65A542924EFEAA5002D88C8 /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
 		E68D9EB224ED1760005AEB83 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E68D9EB524ED186E005AEB83 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E6F855DB24EC2AE900CB270D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -193,9 +199,20 @@
 		E65A541624EF20B1002D88C8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E65A541B24EF2A86002D88C8 /* UserStore.xcdatamodeld */,
+				E65A542824EFEAA5002D88C8 /* Store.xcdatamodeld */,
+				E65A541E24EF2C24002D88C8 /* Managed Objects */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		E65A541E24EF2C24002D88C8 /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				E65A541F24EF2C36002D88C8 /* ManagedChat.swift */,
+				E65A542124EF2CC9002D88C8 /* ManagedUser.swift */,
+				E65A542324EF2D0B002D88C8 /* ManagedMessage.swift */,
+			);
+			path = "Managed Objects";
 			sourceTree = "<group>";
 		};
 		E68D9EB124ED1756005AEB83 /* Message */ = {
@@ -328,12 +345,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61D9E4224EBFB0400A29695 /* ViewController.swift in Sources */,
-				E65A541D24EF2A86002D88C8 /* UserStore.xcdatamodeld in Sources */,
+				E65A542024EF2C36002D88C8 /* ManagedChat.swift in Sources */,
+				E65A542424EF2D0B002D88C8 /* ManagedMessage.swift in Sources */,
 				E65A53FC24EE7896002D88C8 /* LocalMessage.swift in Sources */,
 				E65A540124EE7AC4002D88C8 /* UserSaver.swift in Sources */,
 				E65A53F824EE7835002D88C8 /* UserStore.swift in Sources */,
 				E68D9EB624ED186E005AEB83 /* Chat.swift in Sources */,
 				E65A541124EF1684002D88C8 /* UserDeletion.swift in Sources */,
+				E65A542224EF2CC9002D88C8 /* ManagedUser.swift in Sources */,
 				E64050C424ED151900F8D26C /* User.swift in Sources */,
 				E65A540D24EEC5FD002D88C8 /* UserRetriever.swift in Sources */,
 				E65A53FA24EE7864002D88C8 /* LocalUser.swift in Sources */,
@@ -341,6 +360,7 @@
 				E61D9E3E24EBFB0400A29695 /* AppDelegate.swift in Sources */,
 				E65A53FF24EE7985002D88C8 /* LocalUserFeatures.swift in Sources */,
 				E61D9E4024EBFB0400A29695 /* SceneDelegate.swift in Sources */,
+				E65A542A24EFEAA5002D88C8 /* Store.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,13 +629,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E65A541B24EF2A86002D88C8 /* UserStore.xcdatamodeld */ = {
+		E65A542824EFEAA5002D88C8 /* Store.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E65A541C24EF2A86002D88C8 /* UserStore.xcdatamodel */,
+				E65A542924EFEAA5002D88C8 /* Store.xcdatamodel */,
 			);
-			currentVersion = E65A541C24EF2A86002D88C8 /* UserStore.xcdatamodel */;
-			path = UserStore.xcdatamodeld;
+			currentVersion = E65A542924EFEAA5002D88C8 /* Store.xcdatamodel */;
+			name = Store.xcdatamodeld;
+			path = ../../Store.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
