@@ -11,19 +11,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        testInsertUser()
+        let coredatastore = try! CoreDataStore(storeName: "Store.sqlite")
+
+        testInsertUser(coredatastore)
+        testRetrieveUser(coredatastore)
 
         return true
     }
 
-    func testInsertUser(){
-        let coredatastore = try! CoreDataStore(storeName: "Store.sqlite")
+    func testInsertUser(_ coredatastore:CoreDataStore){
         coredatastore.insert(user: LocalUser.init(name: "helloe", imageName: "ddd", lastMessage: LocalMessage(body: "ddd", date: Date(), isMyMessage: true))) { (result) in
             switch result {
             case .success():
                 debugPrint("testInsertUser success")
             case.failure(let error):
                 debugPrint("testInsertUser error \(error)")
+            }
+        }
+    }
+
+    func testRetrieveUser(_ coredatastore:CoreDataStore){
+        coredatastore.retrieveAllUsers { (result) in
+            switch result {
+            case .success(let users):
+                debugPrint("testRetrieveUser success \(users.count)")
+            case.failure(let error):
+                debugPrint("testRetrieveUser error \(error)")
             }
         }
     }

@@ -25,7 +25,10 @@ extension ManagedMessage {
         managedMsg.date = localMsg.date
         managedMsg.isMyMessage = localMsg.isMyMessage
         return managedMsg
+    }
 
+    var local : LocalMessage{
+        return LocalMessage(body: self.body, date: self.date, isMyMessage: self.isMyMessage)
     }
    
 }

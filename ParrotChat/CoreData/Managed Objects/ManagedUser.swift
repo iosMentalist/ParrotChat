@@ -15,4 +15,11 @@ extension ManagedUser {
     static func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedUser {
         return ManagedUser(context: context)
     }
+
+    static func find(context: NSManagedObjectContext) throws -> [ManagedUser]? {
+        let request = NSFetchRequest<ManagedUser>(entityName: entity().name!)
+        request.returnsObjectsAsFaults = false
+        return try context.fetch(request)
+    }
 }
+

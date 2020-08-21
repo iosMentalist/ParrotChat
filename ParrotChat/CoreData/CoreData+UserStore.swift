@@ -17,7 +17,13 @@ extension CoreDataStore : UserStore {
     }
 
     public func retrieveAllUsers(completion: @escaping RetrieveCompletion) {
-
+        perform { context in
+            completion(Result {
+                try ManagedUser.find(context: context)!.map {
+                    LocalUser(name: $0.name, imageName: $0.imageName, lastMessage: $0.lastMessage.local)
+                }
+            })
+        }
     }
 
     public func delete(user: LocalUser, completion: @escaping DeletionCompletion) {
