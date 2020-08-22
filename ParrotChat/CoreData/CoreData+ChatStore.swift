@@ -7,7 +7,6 @@ import Foundation
 
 extension CoreDataStore : ChatStore {
 
-
     public func update(localChat: LocalChat, completion: @escaping UpdateCompletion) {
         self.append(localMessage: localChat.messages.last!, to: localChat, completion: completion)
     }
@@ -16,24 +15,26 @@ extension CoreDataStore : ChatStore {
         perform { context in
             completion(Result {
                 #warning("fix here")
-                let managedChat = try ManagedChat.find(id:UUID(),context: context)!.first!
-                let  msg = ManagedMessage.newInstanceFromLocal(localMessage, in: context)
-                var array = managedChat.messages.array as! [ManagedMessage]
-                array.append(msg)
-                managedChat.messages = NSOrderedSet(array: array)
-                try context.save()
+//                let managedChat = try ManagedChat.find(id:UUID(),context: context)!.first!
+//                let  msg = ManagedMessage.newInstanceFromLocal(localMessage, in: context)
+//                var array = managedChat.messages.array as! [ManagedMessage]
+//                array.append(msg)
+//                managedChat.messages = NSOrderedSet(array: array)
+//                try context.save()
             })
         }
     }
 
 
     public func retrieveChat(id: UUID, completion: @escaping RetrieveChatCompletion) {
-        perform { context in
-            completion(Result {
-                let chat = try ManagedChat.find(id:id,context: context)!.first!
-                return LocalChat(messages: LocalMessage.localMessagesFrom(managedMessages: chat.messages.array as! [ManagedMessage]), date: chat.date)
-            })
-        }
+        #warning("fix here")
+
+//        perform { context in
+//            completion(Result {
+////                let chat = try ManagedChat.find(id:id,context: context)!.first!
+//                return LocalChat(messages: LocalMessage.localMessagesFrom(managedMessages: chat.messages.array as! [ManagedMessage]), date: chat.date)
+//            })
+//        }
 
     }
 

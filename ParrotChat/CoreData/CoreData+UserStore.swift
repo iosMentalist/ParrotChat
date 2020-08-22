@@ -13,8 +13,6 @@ extension CoreDataStore : UserStore {
                 managedUser.imageName = user.imageName
                 let chat = try ManagedChat.newUniqueInstance(in: context)
                 chat.date = Date()
-                chat.id = UUID()
-                chat.user = managedUser
                 managedUser.chat = chat
                 try context.save()
             })

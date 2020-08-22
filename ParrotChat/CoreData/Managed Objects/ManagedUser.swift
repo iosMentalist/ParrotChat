@@ -38,5 +38,12 @@ extension ManagedUser {
         }
         return managedUser
     }
+
+//    static func find(id:UUID,context: NSManagedObjectContext) throws -> [ManagedChat]? {
+//        let request = NSFetchRequest<ManagedChat>(entityName: entity().name!)
+//        request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(ManagedChat.id),id])
+//        request.returnsObjectsAsFaults = false
+//        return try context.fetch(request)
+//    }
 }
 
