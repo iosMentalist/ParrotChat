@@ -14,6 +14,11 @@ extension CoreDataStore : UserStore {
                 if let msg = user.lastMessage{
                 managedUser.lastMessage = ManagedMessage.newInstanceFromLocal(msg, in: context)
                 }
+                let chat = try ManagedChat.newUniqueInstance(in: context)
+                chat.date = Date()
+                chat.id = UUID()
+                chat.user = managedUser
+                managedUser.chat = chat
                 try context.save()
             })
         }

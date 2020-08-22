@@ -10,6 +10,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let coredatastore = try! CoreDataStore(storeName: "Store.sqlite")
+        let users = UserGenerator.generateUsers()
+        for user in users{
+            testInsertUser(coredatastore, user: user)
+        }
+        let user = users.first!
 
 
         //        testInsertUser(coredatastore)
@@ -22,6 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func testInsertUser(_ coredatastore:CoreDataStore){
         coredatastore.insert(user: LocalUser.init(name: "helloe", imageName: "ddd", lastMessage: LocalMessage(body: "ddd", date: Date(), isMyMessage: true))) { (result) in
+            switch result {
+            case .success():
+                debugPrint("testInsertUser success")
+            case.failure(let error):
+                debugPrint("testInsertUser error \(error)")
+            }
+        }
+    }
+
+    func testInsertUser(_ coredatastore:CoreDataStore,user:User){
+        let local = user.toLocal()
+        coredatastore.insert(user:local) { (result) in
             switch result {
             case .success():
                 debugPrint("testInsertUser success")
