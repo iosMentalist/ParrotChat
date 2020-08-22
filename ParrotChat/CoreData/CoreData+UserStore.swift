@@ -3,7 +3,7 @@
 import Foundation
 
 extension CoreDataStore : UserStore {
-    
+
     public func insert(user: LocalUser, completion: @escaping InsertionCompletion) {
         perform { context in
             completion( InsertionResult{
@@ -11,7 +11,9 @@ extension CoreDataStore : UserStore {
                 let  managedUser = try ManagedUser.newUniqueInstance(in: context)
                 managedUser.name = user.name
                 managedUser.imageName = user.imageName
-                managedUser.lastMessage = ManagedMessage.newInstanceFromLocal(user.lastMessage, in: context)
+                if let msg = user.lastMessage{
+                managedUser.lastMessage = ManagedMessage.newInstanceFromLocal(msg, in: context)
+                }
                 try context.save()
             })
         }
@@ -21,7 +23,7 @@ extension CoreDataStore : UserStore {
         perform { context in
             completion(Result {
                 try ManagedUser.find(context: context)!.map {
-                    LocalUser(name: $0.name, imageName: $0.imageName, lastMessage: $0.lastMessage.local)
+                    return LocalUser(name: $0.name, imageName: $0.imageName, lastMessage: $0.lastMessage?.local)
                 }
             })
         }

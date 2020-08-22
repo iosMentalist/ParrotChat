@@ -11,10 +11,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let coredatastore = try! CoreDataStore(storeName: "Store.sqlite")
 
+
         //        testInsertUser(coredatastore)
         //        testRetrieveUser(coredatastore)
-        let chat = testInsertChat(coredatastore)
-        testRetrieveChat(coredatastore ,id:chat.id)
+//        let chat = testInsertChat(coredatastore)
+//        testRetrieveChat(coredatastore ,id:chat.id)
 //        testUpdateMessages(coredatastore,chat)
         return true
     }

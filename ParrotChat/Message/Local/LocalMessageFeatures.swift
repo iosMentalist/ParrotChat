@@ -19,8 +19,7 @@ extension LocalMessageFeatures : MessageSaver {
 
         store.insert(message: message.toLocal()){[weak self] result in
             guard self != nil else { return }
-
-
+            
             switch result {
             case .success(()):
                 completion(.success(()))

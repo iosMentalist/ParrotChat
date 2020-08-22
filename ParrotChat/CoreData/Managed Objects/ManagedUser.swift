@@ -8,7 +8,7 @@ import CoreData
 class ManagedUser: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var imageName: String
-    @NSManaged var lastMessage: ManagedMessage
+    @NSManaged var lastMessage: ManagedMessage?
 }
 
 extension ManagedUser {
@@ -23,14 +23,16 @@ extension ManagedUser {
     }
 
     var local : LocalUser{
-        return LocalUser(name: self.name, imageName: self.imageName, lastMessage: self.lastMessage.local)
+        return LocalUser(name: self.name, imageName: self.imageName, lastMessage: self.lastMessage?.local ?? nil)
     }
 
     static func newManagedUserFrom(local:LocalUser, in context: NSManagedObjectContext) -> ManagedUser{
         let managedUser = try! ManagedUser.newUniqueInstance(in: context)
         managedUser.imageName  = local.imageName
         managedUser.name  = local.name
-        managedUser.lastMessage = ManagedMessage.newInstanceFromLocal(local.lastMessage, in: context)
+        if let msg = local.lastMessage{
+            managedUser.lastMessage = ManagedMessage.newInstanceFromLocal(msg, in: context)
+        }
         return managedUser
     }
 }

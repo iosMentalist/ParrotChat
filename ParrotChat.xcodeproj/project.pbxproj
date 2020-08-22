@@ -22,6 +22,7 @@
 		E63D017F24F07EA5007CC12B /* LocalChatFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D017B24F07EA5007CC12B /* LocalChatFeatures.swift */; };
 		E63D018024F07EA5007CC12B /* ChatFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D017C24F07EA5007CC12B /* ChatFeatures.swift */; };
 		E63D018224F080A1007CC12B /* CoreData+ChatStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D018124F080A1007CC12B /* CoreData+ChatStore.swift */; };
+		E63D018524F1C3A5007CC12B /* UserGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D018424F1C3A5007CC12B /* UserGenerator.swift */; };
 		E64050C424ED151900F8D26C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64050C324ED151900F8D26C /* User.swift */; };
 		E65A53F824EE7835002D88C8 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A53F724EE7835002D88C8 /* UserStore.swift */; };
 		E65A53FA24EE7864002D88C8 /* LocalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A53F924EE7864002D88C8 /* LocalUser.swift */; };
@@ -75,6 +76,7 @@
 		E63D017B24F07EA5007CC12B /* LocalChatFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChatFeatures.swift; sourceTree = "<group>"; };
 		E63D017C24F07EA5007CC12B /* ChatFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFeatures.swift; sourceTree = "<group>"; };
 		E63D018124F080A1007CC12B /* CoreData+ChatStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+ChatStore.swift"; sourceTree = "<group>"; };
+		E63D018424F1C3A5007CC12B /* UserGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGenerator.swift; sourceTree = "<group>"; };
 		E64050C324ED151900F8D26C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E65A53F724EE7835002D88C8 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		E65A53F924EE7864002D88C8 /* LocalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUser.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		E61D9E3C24EBFB0400A29695 /* ParrotChat */ = {
 			isa = PBXGroup;
 			children = (
+				E63D018324F1C395007CC12B /* Services */,
 				E65A541624EF20B1002D88C8 /* CoreData */,
 				E61D9E3D24EBFB0400A29695 /* AppDelegate.swift */,
 				E61D9E3F24EBFB0400A29695 /* SceneDelegate.swift */,
@@ -170,6 +173,14 @@
 				E63D017B24F07EA5007CC12B /* LocalChatFeatures.swift */,
 			);
 			path = Local;
+			sourceTree = "<group>";
+		};
+		E63D018324F1C395007CC12B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E63D018424F1C3A5007CC12B /* UserGenerator.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E64050C224ED150700F8D26C /* User */ = {
@@ -386,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E66A27D124F065AF0097B163 /* CoreDataStore.swift in Sources */,
+				E63D018524F1C3A5007CC12B /* UserGenerator.swift in Sources */,
 				E61D9E4224EBFB0400A29695 /* ViewController.swift in Sources */,
 				E65A542024EF2C36002D88C8 /* ManagedChat.swift in Sources */,
 				E63D015B24F07C10007CC12B /* MessageStore.swift in Sources */,
