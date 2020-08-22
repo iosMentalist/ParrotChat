@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        testRetrieveUser(coredatastore)
         let chat = testInsertChat(coredatastore)
         testRetrieveChat(coredatastore ,id:chat.id)
+        testUpdateMessages(coredatastore,chat)
         return true
     }
 
@@ -78,6 +79,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 debugPrint("testRetriveChat success \(chat)")
             case.failure(let error):
                 debugPrint("testRetriveChat error \(error)")
+            }
+        }
+    }
+
+    func testUpdateMessages(_ coredatastore:CoreDataStore, _ chat : LocalChat){
+        var newChat = chat
+        newChat.messages.append(LocalMessage(body: "new body", date: Date(), isMyMessage: false))
+        coredatastore.update(localChat: newChat) { (result) in
+            switch result {
+            case .success(let chat):
+                debugPrint("testUpdateMessages success \(chat)")
+            case.failure(let error):
+                debugPrint("testUpdateMessages error \(error)")
             }
         }
     }
