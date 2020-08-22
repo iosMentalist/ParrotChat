@@ -25,7 +25,7 @@ extension CoreDataStore : UserStore {
         perform { context in
             completion(Result {
                 try ManagedUser.find(context: context)!.map {
-                    return LocalUser(name: $0.name, imageName: $0.imageName, chat: $0.chat?.local)
+                    return LocalUser(id: $0.id, name: $0.name, imageName: $0.imageName, chat: $0.chat?.local)
                 }
             })
         }
