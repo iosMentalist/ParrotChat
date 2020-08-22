@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //        testInsertUser(coredatastore)
         //        testRetrieveUser(coredatastore)
-        testInsertChat(coredatastore)
-
+        let chat = testInsertChat(coredatastore)
+        testRetrieveChat(coredatastore ,id:chat.id)
         return true
     }
 
@@ -53,13 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    func testInsertChat(_ coredatastore:CoreDataStore){
+    func testInsertChat(_ coredatastore:CoreDataStore) -> LocalChat{
         let localMsg1 = LocalMessage(body: "mesage1", date: Date(), isMyMessage: true)
         let localMsg2 = LocalMessage(body: "mesage2", date: Date(), isMyMessage: true)
         let localUser = LocalUser.init(name: "Name", imageName: "image Name", lastMessage: localMsg2)
         let localChat = LocalChat(id: UUID(), user: localUser, messages: [localMsg1,localMsg2], date: Date())
 
-//        coredatastore.insert(user: localUser){_ in }
+        //        coredatastore.insert(user: localUser){_ in }
         coredatastore.insert(chat: localChat) { (result) in
             switch result {
             case .success():
@@ -68,7 +68,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 debugPrint("testInsertChat error \(error)")
             }
         }
+        return localChat
     }
+
+    func testRetrieveChat(_ coredatastore:CoreDataStore,id : UUID){
+        coredatastore.retrieveChat(id: id) { (result) in
+            switch result {
+            case .success(let chat):
+                debugPrint("testRetriveChat success \(chat)")
+            case.failure(let error):
+                debugPrint("testRetriveChat error \(error)")
+            }
+        }
+    }
+
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

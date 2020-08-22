@@ -18,8 +18,9 @@ extension ManagedChat {
         return ManagedChat(context: context)
     }
 
-    static func find(context: NSManagedObjectContext) throws -> [ManagedChat]? {
+    static func find(id:UUID,context: NSManagedObjectContext) throws -> [ManagedChat]? {
         let request = NSFetchRequest<ManagedChat>(entityName: entity().name!)
+        request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(ManagedChat.id),id])
         request.returnsObjectsAsFaults = false
         return try context.fetch(request)
     }
@@ -27,5 +28,5 @@ extension ManagedChat {
     var local : LocalChat{
         let managedMessages : [ManagedMessage] = self.messages.array as! [ManagedMessage]
         return LocalChat(id: self.id, user: self.user.local, messages: managedMessages.map{$0.local}, date: self.date)
-       }
+    }
 }

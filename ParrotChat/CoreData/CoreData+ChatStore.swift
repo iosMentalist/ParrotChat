@@ -7,6 +7,13 @@ import Foundation
 
 extension CoreDataStore : ChatStore {
     public func retrieveChat(id: UUID, completion: @escaping RetrieveChatCompletion) {
+        perform { context in
+            completion(Result {
+
+                let chat = try ManagedChat.find(id:id,context: context)!.first!
+                return LocalChat(id: chat.id, user: chat.user.local, messages: LocalMessage.localMessagesFrom(managedMessages: chat.messages.array as! [ManagedMessage]), date: chat.date)
+            })
+        }
 
     }
 
