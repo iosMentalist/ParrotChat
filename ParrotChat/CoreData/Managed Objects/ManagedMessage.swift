@@ -30,7 +30,20 @@ extension ManagedMessage {
     var local : LocalMessage{
         return LocalMessage(body: self.body, date: self.date, isMyMessage: self.isMyMessage)
     }
-   
+
+    static func newManagedMessageFrom(local:LocalMessage,in context: NSManagedObjectContext) -> ManagedMessage{
+        let managedMsg = try! ManagedMessage.newUniqueInstance(in: context)
+        managedMsg.body = local.body
+        managedMsg.date = local.date
+        managedMsg.isMyMessage = local.isMyMessage
+        return managedMsg
+    }
+
+    static func managedMessages(from localMessages: [LocalMessage], in context: NSManagedObjectContext) -> NSOrderedSet {
+        return NSOrderedSet(array: localMessages.map{
+            return ManagedMessage.newInstanceFromLocal($0, in: context)
+        })
+    }
 }
 
 

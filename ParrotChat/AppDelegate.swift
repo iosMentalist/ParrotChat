@@ -11,8 +11,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let coredatastore = try! CoreDataStore(storeName: "Store.sqlite")
 
-        testInsertUser(coredatastore)
-        testRetrieveUser(coredatastore)
+        //        testInsertUser(coredatastore)
+        //        testRetrieveUser(coredatastore)
+        testInsertChat(coredatastore)
 
         return true
     }
@@ -28,6 +29,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func insertUser(_ coredatastore:CoreDataStore,user:LocalUser){
+        coredatastore.insert(user: user) { (result) in
+            switch result {
+            case .success():
+                debugPrint("testInsertUser success")
+            case.failure(let error):
+                debugPrint("testInsertUser error \(error)")
+            }
+        }
+    }
+
+
+
     func testRetrieveUser(_ coredatastore:CoreDataStore){
         coredatastore.retrieveAllUsers { (result) in
             switch result {
@@ -39,6 +53,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func testInsertChat(_ coredatastore:CoreDataStore){
+        let localMsg1 = LocalMessage(body: "mesage1", date: Date(), isMyMessage: true)
+        let localMsg2 = LocalMessage(body: "mesage2", date: Date(), isMyMessage: true)
+        let localUser = LocalUser.init(name: "Name", imageName: "image Name", lastMessage: localMsg2)
+        let localChat = LocalChat(id: UUID(), user: localUser, messages: [localMsg1,localMsg2], date: Date())
+
+//        coredatastore.insert(user: localUser){_ in }
+        coredatastore.insert(chat: localChat) { (result) in
+            switch result {
+            case .success():
+                debugPrint("testInsertChat success")
+            case.failure(let error):
+                debugPrint("testInsertChat error \(error)")
+            }
+        }
+    }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

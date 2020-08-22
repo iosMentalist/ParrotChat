@@ -21,5 +21,17 @@ extension ManagedUser {
         request.returnsObjectsAsFaults = false
         return try context.fetch(request)
     }
+
+    var local : LocalUser{
+        return LocalUser(name: self.name, imageName: self.imageName, lastMessage: self.lastMessage.local)
+    }
+
+    static func newManagedUserFrom(local:LocalUser, in context: NSManagedObjectContext) -> ManagedUser{
+        let managedUser = try! ManagedUser.newUniqueInstance(in: context)
+        managedUser.imageName  = local.imageName
+        managedUser.name  = local.name
+        managedUser.lastMessage = ManagedMessage.newInstanceFromLocal(local.lastMessage, in: context)
+        return managedUser
+    }
 }
 

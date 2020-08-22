@@ -9,7 +9,7 @@ import CoreData
 class ManagedChat: NSManagedObject {
     @NSManaged var id: UUID
     @NSManaged var user: ManagedUser
-    @NSManaged var messages: [ManagedMessage]
+    @NSManaged var messages: NSOrderedSet
     @NSManaged var date: Date
 }
 
@@ -23,4 +23,9 @@ extension ManagedChat {
         request.returnsObjectsAsFaults = false
         return try context.fetch(request)
     }
+
+    var local : LocalChat{
+        let managedMessages : [ManagedMessage] = self.messages.array as! [ManagedMessage]
+        return LocalChat(id: self.id, user: self.user.local, messages: managedMessages.map{$0.local}, date: self.date)
+       }
 }

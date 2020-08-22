@@ -21,4 +21,5 @@ extension Message{
     func toLocal() -> LocalMessage{
         return LocalMessage(body: self.body, date: self.date, isMyMessage: self.isMyMessage)
     }
+
 }

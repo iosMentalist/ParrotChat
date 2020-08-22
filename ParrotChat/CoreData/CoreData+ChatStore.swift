@@ -21,7 +21,8 @@ extension CoreDataStore : ChatStore {
                 let  managedChat = try ManagedChat.newUniqueInstance(in: context)
                 managedChat.id = chat.id
                 managedChat.date = chat.date
-
+                managedChat.user = ManagedUser.newManagedUserFrom(local: chat.user, in: context)
+                managedChat.messages = ManagedMessage.managedMessages(from: chat.messages, in: context)
                 try context.save()
             })
         }
