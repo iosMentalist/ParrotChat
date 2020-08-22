@@ -17,7 +17,7 @@ public class LocalUserFeatures {
 extension LocalUserFeatures : UserSaver {
     public func save(user:User,completion:@escaping(InsertionResult)->Void){
 
-        store.insert(user: user.toLocal()){[weak self] result in
+        store.insert(user: user.local){[weak self] result in
             guard self != nil else { return }
 
 
@@ -50,7 +50,7 @@ extension LocalUserFeatures : UserRetriever {
 extension LocalUserFeatures : UserDeleter {
      public func delete(user:User,completion:@escaping(DeletionResult)->Void){
 
-        store.delete(user: user.toLocal()){[weak self] result in
+        store.delete(user: user.local){[weak self] result in
             guard self != nil else { return }
 
 

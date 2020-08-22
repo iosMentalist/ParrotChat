@@ -12,18 +12,17 @@ public struct LocalUser : Equatable{
 
     var name : String
     var imageName : String
-    var lastMessage : LocalMessage?
+    var chat : LocalChat?
 
-    public init(name:String,imageName:String,lastMessage:LocalMessage?){
+    public init(name:String,imageName:String,chat:LocalChat?){
         self.name = name
         self.imageName = imageName
-        self.lastMessage = lastMessage
+        self.chat = chat
     }
 }
 
 extension User{
-    func toLocal() -> LocalUser{
-        return LocalUser(name: self.name, imageName: self.imageName, lastMessage: self.lastMessage?.toLocal() ?? nil)
-
+    var local : LocalUser{
+        return LocalUser(name: self.name, imageName: self.imageName, chat: self.chat?.local ?? nil)
     }
 }

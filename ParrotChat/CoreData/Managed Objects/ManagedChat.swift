@@ -27,6 +27,6 @@ extension ManagedChat {
 
     var local : LocalChat{
         let managedMessages : [ManagedMessage] = self.messages.array as! [ManagedMessage]
-        return LocalChat(id: self.id, user: self.user.local, messages: managedMessages.map{$0.local}, date: self.date)
+        return LocalChat(messages: managedMessages.map{$0.local}, date: self.date)
     }
 }

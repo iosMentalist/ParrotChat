@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func testInsertUser(_ coredatastore:CoreDataStore){
-        coredatastore.insert(user: LocalUser.init(name: "helloe", imageName: "ddd", lastMessage: LocalMessage(body: "ddd", date: Date(), isMyMessage: true))) { (result) in
+        coredatastore.insert(user: LocalUser.init(name: "helloe", imageName: "ddd", chat: nil)) { (result) in
             switch result {
             case .success():
                 debugPrint("testInsertUser success")
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func testInsertUser(_ coredatastore:CoreDataStore,user:User){
-        let local = user.toLocal()
+        let local = user.local
         coredatastore.insert(user:local) { (result) in
             switch result {
             case .success():
@@ -75,8 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func testInsertChat(_ coredatastore:CoreDataStore) -> LocalChat{
         let localMsg1 = LocalMessage(body: "mesage1", date: Date(), isMyMessage: true)
         let localMsg2 = LocalMessage(body: "mesage2", date: Date(), isMyMessage: true)
-        let localUser = LocalUser.init(name: "Name", imageName: "image Name", lastMessage: localMsg2)
-        let localChat = LocalChat(id: UUID(), user: localUser, messages: [localMsg1,localMsg2], date: Date())
+        let localUser = LocalUser.init(name: "Name", imageName: "image Name", chat: nil)
+        let localChat = LocalChat(messages: [localMsg1,localMsg2], date: Date())
 
         coredatastore.insert(chat: localChat) { (result) in
             switch result {

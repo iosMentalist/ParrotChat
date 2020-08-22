@@ -15,7 +15,8 @@ extension CoreDataStore : ChatStore {
     private func append(localMessage: LocalMessage,to localChat: LocalChat, completion: @escaping UpdateCompletion) {
         perform { context in
             completion(Result {
-                let managedChat = try ManagedChat.find(id:localChat.id,context: context)!.first!
+                #warning("fix here")
+                let managedChat = try ManagedChat.find(id:UUID(),context: context)!.first!
                 let  msg = ManagedMessage.newInstanceFromLocal(localMessage, in: context)
                 var array = managedChat.messages.array as! [ManagedMessage]
                 array.append(msg)
@@ -30,7 +31,7 @@ extension CoreDataStore : ChatStore {
         perform { context in
             completion(Result {
                 let chat = try ManagedChat.find(id:id,context: context)!.first!
-                return LocalChat(id: chat.id, user: chat.user.local, messages: LocalMessage.localMessagesFrom(managedMessages: chat.messages.array as! [ManagedMessage]), date: chat.date)
+                return LocalChat(messages: LocalMessage.localMessagesFrom(managedMessages: chat.messages.array as! [ManagedMessage]), date: chat.date)
             })
         }
 
@@ -44,9 +45,7 @@ extension CoreDataStore : ChatStore {
         perform { context in
             completion( InsertionResult{
                 let  managedChat = try ManagedChat.newUniqueInstance(in: context)
-                managedChat.id = chat.id
                 managedChat.date = chat.date
-                managedChat.user = ManagedUser.newManagedUserFrom(local: chat.user, in: context)
                 managedChat.messages = ManagedMessage.managedMessages(from: chat.messages, in: context)
                 try context.save()
             })

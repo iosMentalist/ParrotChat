@@ -6,14 +6,10 @@
 import Foundation
 
 public struct Chat  {
-    var id : UUID
-    var user : User
     var messages : [Message]
     var date : Date
 
-    public init(id:UUID,user:User,messages:[Message],date:Date){
-          self.id = id
-          self.user = user
+    public init(messages:[Message],date:Date){
           self.messages = messages
           self.date = date
       }

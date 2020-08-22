@@ -11,9 +11,6 @@ extension CoreDataStore : UserStore {
                 let  managedUser = try ManagedUser.newUniqueInstance(in: context)
                 managedUser.name = user.name
                 managedUser.imageName = user.imageName
-                if let msg = user.lastMessage{
-                managedUser.lastMessage = ManagedMessage.newInstanceFromLocal(msg, in: context)
-                }
                 let chat = try ManagedChat.newUniqueInstance(in: context)
                 chat.date = Date()
                 chat.id = UUID()
@@ -28,7 +25,7 @@ extension CoreDataStore : UserStore {
         perform { context in
             completion(Result {
                 try ManagedUser.find(context: context)!.map {
-                    return LocalUser(name: $0.name, imageName: $0.imageName, lastMessage: $0.lastMessage?.local)
+                    return LocalUser(name: $0.name, imageName: $0.imageName, chat: $0.chat?.local)
                 }
             })
         }

@@ -8,11 +8,11 @@ import Foundation
 public struct User {
     var name : String
     var imageName : String
-    var lastMessage : Message?
+    var chat : Chat?
 
-    public init(name:String,imageName:String,lastMessage:Message?){
+    public init(name:String,imageName:String,chat:Chat?){
         self.name = name
         self.imageName = imageName
-        self.lastMessage = lastMessage
+        self.chat = chat
     }
 }
