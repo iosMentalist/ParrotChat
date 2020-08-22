@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        testRetrieveUser(coredatastore)
         let chat = testInsertChat(coredatastore)
         testRetrieveChat(coredatastore ,id:chat.id)
-        testUpdateMessages(coredatastore,chat)
+//        testUpdateMessages(coredatastore,chat)
         return true
     }
 
@@ -60,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let localUser = LocalUser.init(name: "Name", imageName: "image Name", lastMessage: localMsg2)
         let localChat = LocalChat(id: UUID(), user: localUser, messages: [localMsg1,localMsg2], date: Date())
 
-        //        coredatastore.insert(user: localUser){_ in }
         coredatastore.insert(chat: localChat) { (result) in
             switch result {
             case .success():

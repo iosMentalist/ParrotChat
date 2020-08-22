@@ -9,14 +9,22 @@ extension CoreDataStore : ChatStore {
 
 
     public func update(localChat: LocalChat, completion: @escaping UpdateCompletion) {
+        self.append(localMessage: localChat.messages.last!, to: localChat, completion: completion)
+    }
+
+    private func append(localMessage: LocalMessage,to localChat: LocalChat, completion: @escaping UpdateCompletion) {
         perform { context in
             completion(Result {
                 let managedChat = try ManagedChat.find(id:localChat.id,context: context)!.first!
-                managedChat.messages = ManagedMessage.managedMessages(from: localChat.messages, in: context)
+                let  msg = ManagedMessage.newInstanceFromLocal(localMessage, in: context)
+                var array = managedChat.messages.array as! [ManagedMessage]
+                array.append(msg)
+                managedChat.messages = NSOrderedSet(array: array)
                 try context.save()
             })
         }
     }
+
 
     public func retrieveChat(id: UUID, completion: @escaping RetrieveChatCompletion) {
         perform { context in
