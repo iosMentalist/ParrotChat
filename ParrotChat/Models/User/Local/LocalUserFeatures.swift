@@ -12,6 +12,7 @@ public class LocalUserFeatures {
     public init(_ store:UserStore){
         self.store = store
     }
+
 }
 
 extension LocalUserFeatures : UserSaver {

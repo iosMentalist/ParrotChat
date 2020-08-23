@@ -9,17 +9,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let coredatastore = try! CoreDataStore(storeName: "Store.sqlite")
-        debugPrint(coredatastore)
-//        var user = UserGenerator.generateUsers().first!
-//        user.chat = Chat(messages: [Message(body: "body", date: Date(), isMyMessage: true)], date: Date())
-//        testInsertUser(coredatastore, user: user)
 
-//        testRetrieveAllUser(coredatastore)
-//        testRetrieveAllUser(coredatastore)
-
-//        testRetrieveandUpdateFirstUser(coredatastore)
-        testUpdateUser(coredatastore, localUser: LocalUser(id: UUID(uuidString: "EC822A08-124E-4CD5-BCCB-CD9508F146C2")!, name: "User 1", imageName: "", chat: LocalChat(messages: [LocalMessage(body: "Newswer", date: Date(), isMyMessage: true)], date: Date())))
+//        let coredatastore = try! CoreDataStore(storeName: "Store.sqlite")
+//        debugPrint(coredatastore)
+////        var user = UserGenerator.generateUsers().first!
+////        user.chat = Chat(messages: [Message(body: "body", date: Date(), isMyMessage: true)], date: Date())
+////        testInsertUser(coredatastore, user: user)
+//
+////        testRetrieveAllUser(coredatastore)
+////        testRetrieveAllUser(coredatastore)
+//
+////        testRetrieveandUpdateFirstUser(coredatastore)
+//        testUpdateUser(coredatastore, localUser: LocalUser(id: UUID(uuidString: "EC822A08-124E-4CD5-BCCB-CD9508F146C2")!, name: "User 1", imageName: "", chat: LocalChat(messages: [LocalMessage(body: "Newswer", date: Date(), isMyMessage: true)], date: Date())))
 
 //        let chat = testInsertChat(coredatastore)
 //        testRetrieveChat(coredatastore ,id:chat.id)
