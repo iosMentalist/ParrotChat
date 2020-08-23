@@ -27,12 +27,35 @@ class UsersViewController: UIViewController {
             guard let self = self else {return}
             switch result {
             case.success(let users) :
-                self.tableUsersController.model = users.map{$0.model}
+                users.isEmpty ?  self.generateUsers() : self.setupModel(users)
             case.failure(let error):
                 debugPrint("error in retriveing user from db \(error)")
             }
         })
     }
+
+    private func setupModel(_ users:[LocalUser]){
+        self.tableUsersController.model = users.map{$0.model}
+    }
+
+    private func generateUsers(){
+        let users = UserGenerator.generateUsers()
+        for user in users{
+            userFeature?.save(user: user, completion: { [weak self](result) in
+                guard let self = self else {return}
+                switch result {
+                case.success :
+                    self.setupModel(users.map{$0.local})
+                    debugPrint("save")
+                case.failure(let error):
+                    debugPrint("error in save from db \(error)")
+                }
+
+            })
+        }
+
+    }
+
 
     @objc func refreshView(notification:NSNotification){
         refreshTable()

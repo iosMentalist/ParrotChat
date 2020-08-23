@@ -13,6 +13,7 @@ class UserTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imgProfile.layer.cornerRadius = imgProfile.frame.width / 2 
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

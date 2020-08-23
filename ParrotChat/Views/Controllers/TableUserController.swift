@@ -11,7 +11,7 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     @IBOutlet var tableView : UITableView!{
         didSet{
-            tableView.estimatedRowHeight = 80
+            tableView.rowHeight = 80
             tableView.delegate = self
             tableView.dataSource = self
         }
