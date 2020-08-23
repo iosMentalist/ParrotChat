@@ -8,7 +8,7 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
 
     var model = [User]()
     var parentViewController : UIViewController!
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
     @IBOutlet var tableView : UITableView!{
         didSet{
             tableView.rowHeight = 80
@@ -17,8 +17,9 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
         }
     }
 
-    func setup(parentViewController:UIViewController){
-
+    func setup(parentViewController:UIViewController,model:[User]){
+        self.model = model
+        self.parentViewController = parentViewController
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,9 +39,25 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = model[indexPath.row]
+        var user = model[indexPath.row]
+        if let chat = user.chat{
+            goToChatDetail(chat:chat)
+        }
+        else{
+            user.chat = Chat(messages: [], date: Date())
+            goToChatDetail(chat:user.chat!)
+        }
+
+    }
+
+    func goToChatDetail(chat:Chat){
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "ChatDetailViewController") as! ChatDetailViewController
+        vc.currentChat = chat
+        self.parentViewController.navigationController!.pushViewController(vc, animated: true)
     }
 }
+
 extension Date{
     func toString() -> String {
         let dateFormatter = DateFormatter()

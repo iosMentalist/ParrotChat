@@ -10,7 +10,7 @@ class UsersViewController: UIViewController {
     @IBOutlet var tableUsersController: TableUserController!
     var model : [User]? {
         willSet{
-            tableUsersController.model = newValue!
+            tableUsersController.setup(parentViewController: self,model:newValue!)
         }
     }
 
