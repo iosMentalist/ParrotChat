@@ -125,15 +125,16 @@
                                 <rect key="frame" x="0.0" y="766" width="414" height="80"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="myR-Lf-ZsF">
-                                        <rect key="frame" x="20" y="17.5" width="304" height="45"/>
+                                        <rect key="frame" x="20" y="17.5" width="297" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFJ-1a-aB7">
-                                        <rect key="frame" x="354" y="17.5" width="40" height="45"/>
+                                        <rect key="frame" x="337" y="17.5" width="57" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="ppi-hL-NTc"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="SEND">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -147,7 +148,7 @@
                                     <constraint firstItem="eFJ-1a-aB7" firstAttribute="centerY" secondItem="pZU-Cf-ae0" secondAttribute="centerY" id="G2p-7h-dxP"/>
                                     <constraint firstAttribute="height" constant="80" id="MP2-bC-Gnq"/>
                                     <constraint firstItem="myR-Lf-ZsF" firstAttribute="centerY" secondItem="pZU-Cf-ae0" secondAttribute="centerY" id="Ryu-ZB-6dt"/>
-                                    <constraint firstItem="eFJ-1a-aB7" firstAttribute="leading" secondItem="myR-Lf-ZsF" secondAttribute="trailing" constant="30" id="fX9-hr-WiU"/>
+                                    <constraint firstItem="eFJ-1a-aB7" firstAttribute="leading" secondItem="myR-Lf-ZsF" secondAttribute="trailing" constant="20" id="fX9-hr-WiU"/>
                                     <constraint firstItem="myR-Lf-ZsF" firstAttribute="height" secondItem="eFJ-1a-aB7" secondAttribute="height" id="rVR-tQ-eLZ"/>
                                     <constraint firstAttribute="trailing" secondItem="eFJ-1a-aB7" secondAttribute="trailing" constant="20" id="rYr-kC-zjq"/>
                                     <constraint firstItem="myR-Lf-ZsF" firstAttribute="leading" secondItem="pZU-Cf-ae0" secondAttribute="leading" constant="20" id="rtf-nJ-3gN"/>
