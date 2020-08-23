@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WvG-Xw-SfZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WvG-Xw-SfZ">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -116,7 +116,7 @@
         <!--Chat Detail View Controller-->
         <scene sceneID="DpC-6S-XVv">
             <objects>
-                <viewController storyboardIdentifier="ChatDetailViewController" id="WNS-ny-jXZ" customClass="ChatDetailViewController" customModule="ChatBot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatDetailViewController" id="WNS-ny-jXZ" customClass="ChatDetailViewController" customModule="ParrotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C39-dL-aTe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,26 +153,28 @@
                                     <constraint firstItem="myR-Lf-ZsF" firstAttribute="leading" secondItem="pZU-Cf-ae0" secondAttribute="leading" constant="20" id="rtf-nJ-3gN"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p6B-1p-Wk2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p6B-1p-Wk2">
                                 <rect key="frame" x="0.0" y="88" width="414" height="678"/>
                                 <color key="backgroundColor" white="1" alpha="0.61274614729999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReceiverTableViewCell" rowHeight="40" id="LRl-n8-u06" customClass="ReceiverTableViewCell" customModule="ChatBot" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReceiverTableViewCell" rowHeight="40" id="LRl-n8-u06" customClass="ReceiverTableViewCell" customModule="ParrotChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LRl-n8-u06" id="mRu-ci-i6e">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogq-H6-SYA">
-                                                    <rect key="frame" x="30" y="9.5" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogq-H6-SYA">
+                                                    <rect key="frame" x="30" y="12" width="207" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.87661739179999998" green="0.27026111879999998" blue="0.094195835879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ogq-H6-SYA" firstAttribute="centerY" secondItem="mRu-ci-i6e" secondAttribute="centerY" id="Ch8-QB-TJA"/>
+                                                <constraint firstItem="Ogq-H6-SYA" firstAttribute="width" secondItem="mRu-ci-i6e" secondAttribute="width" multiplier="0.5" id="AM3-QD-xCm"/>
+                                                <constraint firstItem="Ogq-H6-SYA" firstAttribute="top" secondItem="mRu-ci-i6e" secondAttribute="top" constant="12" id="Mtk-9p-XnL"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ogq-H6-SYA" secondAttribute="bottom" constant="12" id="pIW-UJ-ZMN"/>
                                                 <constraint firstItem="Ogq-H6-SYA" firstAttribute="leading" secondItem="mRu-ci-i6e" secondAttribute="leading" constant="30" id="xZR-dl-egj"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -180,15 +182,15 @@
                                             <outlet property="lblText" destination="Ogq-H6-SYA" id="YcD-HE-hw5"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SenderTableViewCell" rowHeight="46" id="T0i-gX-0iZ" customClass="SenderTableViewCell" customModule="ChatBot" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="68" width="414" height="46"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SenderTableViewCell" id="T0i-gX-0iZ" customClass="SenderTableViewCell" customModule="ParrotChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68" width="414" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T0i-gX-0iZ" id="pMh-QT-DpO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQy-fA-fTF">
-                                                    <rect key="frame" x="342" y="12.5" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQy-fA-fTF">
+                                                    <rect key="frame" x="177" y="12" width="207" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -196,7 +198,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="bQy-fA-fTF" secondAttribute="trailing" constant="30" id="5ry-C6-HzT"/>
-                                                <constraint firstItem="bQy-fA-fTF" firstAttribute="centerY" secondItem="pMh-QT-DpO" secondAttribute="centerY" id="ir4-wg-Zlf"/>
+                                                <constraint firstItem="bQy-fA-fTF" firstAttribute="top" secondItem="pMh-QT-DpO" secondAttribute="top" constant="12" id="DeS-Hr-BGn"/>
+                                                <constraint firstItem="bQy-fA-fTF" firstAttribute="width" secondItem="pMh-QT-DpO" secondAttribute="width" multiplier="0.5" id="GZ0-DR-dim"/>
+                                                <constraint firstAttribute="bottom" secondItem="bQy-fA-fTF" secondAttribute="bottom" constant="12" id="oju-lM-UO9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -214,10 +218,10 @@
                         <constraints>
                             <constraint firstItem="p6B-1p-Wk2" firstAttribute="leading" secondItem="W1A-1d-jWX" secondAttribute="leading" id="8hJ-5u-eJu"/>
                             <constraint firstItem="W1A-1d-jWX" firstAttribute="trailing" secondItem="p6B-1p-Wk2" secondAttribute="trailing" id="AoW-AR-i6q"/>
+                            <constraint firstItem="W1A-1d-jWX" firstAttribute="bottom" secondItem="pZU-Cf-ae0" secondAttribute="bottom" constant="16" id="B1K-ZQ-1qb"/>
                             <constraint firstItem="W1A-1d-jWX" firstAttribute="trailing" secondItem="pZU-Cf-ae0" secondAttribute="trailing" id="Dra-lp-Llp"/>
                             <constraint firstItem="p6B-1p-Wk2" firstAttribute="top" secondItem="W1A-1d-jWX" secondAttribute="top" id="FfG-97-QSa"/>
                             <constraint firstItem="pZU-Cf-ae0" firstAttribute="leading" secondItem="W1A-1d-jWX" secondAttribute="leading" id="Mgg-M5-zkO"/>
-                            <constraint firstAttribute="bottom" secondItem="pZU-Cf-ae0" secondAttribute="bottom" constant="50" id="N4C-td-myZ"/>
                             <constraint firstItem="pZU-Cf-ae0" firstAttribute="top" secondItem="p6B-1p-Wk2" secondAttribute="bottom" id="ix7-Ms-h7d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W1A-1d-jWX"/>
@@ -225,7 +229,6 @@
                     <navigationItem key="navigationItem" id="sbQ-k0-kwu"/>
                     <connections>
                         <outlet property="btnSend" destination="eFJ-1a-aB7" id="nd0-T9-hTi"/>
-                        <outlet property="constBtm" destination="N4C-td-myZ" id="YIB-GE-8Gn"/>
                         <outlet property="tableView" destination="p6B-1p-Wk2" id="fXg-tx-5Qw"/>
                         <outlet property="txtField" destination="myR-Lf-ZsF" id="Cb5-SM-1ah"/>
                         <outlet property="vwChat" destination="pZU-Cf-ae0" id="EfM-E0-LWS"/>
@@ -238,7 +241,6 @@
         <!--Navigation Controller-->
         <scene sceneID="tVy-RM-Sa1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="daq-eD-i7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="tNL-qC-zCm" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SFu-Sd-VqU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -248,6 +250,7 @@
                         <segue destination="VtN-xI-sLq" kind="relationship" relationship="rootViewController" id="Q5z-4N-CfS"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daq-eD-i7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1110" y="-167"/>
         </scene>
