@@ -30,24 +30,11 @@ extension ManagedUser {
         return try context.fetch(request)
     }
 
-
-    static func newManagedUserFrom(local:LocalUser, in context: NSManagedObjectContext) -> ManagedUser{
-        let managedUser = try! ManagedUser.newUniqueInstance(in: context)
-        managedUser.imageName  = local.imageName
-        managedUser.name  = local.name
-        managedUser.id = local.id
-        if let msg = local.chat{
-            #warning("fix here")
-//            managedUser.lastMessage = ManagedMessage.newInstanceFromLocal(msg, in: context)
-        }
-        return managedUser
-    }
-
     static func first(id:UUID,context: NSManagedObjectContext) throws -> [ManagedUser]? {
         let request = NSFetchRequest<ManagedUser>(entityName: entity().name!)
-//        request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(ManagedUser.id),id])
+        request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(ManagedUser.id),id])
         request.returnsObjectsAsFaults = false
-//        request.fetchLimit = 1
+        request.fetchLimit = 1
         return try context.fetch(request)
     }
 }
