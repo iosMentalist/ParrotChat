@@ -12,7 +12,8 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet var tableView : UITableView!{
         didSet{
-            tableView.rowHeight = 80
+            tableView.rowHeight = UITableView.automaticDimension
+            tableView.estimatedRowHeight = 90
             tableView.delegate = self
             tableView.dataSource = self
         }
@@ -36,7 +37,14 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
         let item = model[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell") as! UserTableViewCell
         cell.lblUserName?.text = item.name
-        cell.lblLastMsg?.text = item.chat?.messages.last?.date.toString()
+        if let lastmsg = item.chat?.messages.last{
+            cell.lblLastMsg?.text = "\(lastmsg.body)\n\(lastmsg.date.toString())"
+            cell.lblLastMsg.textColor = .lightGray
+            cell.lblLastMsg.font = UIFont.systemFont(ofSize: 12)
+        }
+        else{
+            cell.lblLastMsg.isHidden = true
+        }
         cell.imgProfile?.image = UIImage(named: item.imageName)
         return cell
     }

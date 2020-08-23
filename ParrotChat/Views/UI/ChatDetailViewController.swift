@@ -33,6 +33,8 @@ class ChatDetailViewController: UIViewController {
         txtField.delegate = self
         txtField.addTarget(self, action: #selector(textFieldsIsNotEmpty), for: .editingChanged)
         btnSend.isEnabled = false
+        btnSend.setTitleColor(.white, for: .normal)
+        btnSend.setTitleColor(.gray, for: .disabled)
         constBtm.constant = VIEW_CHAT_BOTTOM_CONSTANT
         self.view.layoutIfNeeded()
         registerForKeyboardNotifications()
@@ -42,36 +44,31 @@ class ChatDetailViewController: UIViewController {
         if let msg = txtField.text, !txtField.text!.isEmpty{
             user?.chat?.messages.append(Message(body: msg, date: Date(), isMyMessage: true))
             self.tableView.reloadData()
+            self.resetChatView()
             parrotAnswer(msg)
         }
     }
 
-    func parrotAnswer(_ msg:String){
+    private func parrotAnswer(_ msg:String){
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self]_ in
             guard let self = self else {return}
             self.user?.chat?.messages.append(Message(body: "\(msg) \(msg)", date: Date(), isMyMessage: false))
             self.tableView.reloadData()
-            self.userFeatures?.update(user: self.user!, completion: { (result) in
-                switch result {
-                case .success():
-                    debugPrint("update success")
-                case .failure(let error) :
-                    debugPrint("update error \(error)")
-                }
-            })
-            self.scrollToUsertom()
+            self.userFeatures?.update(user: self.user!, completion: { _ in })
         }
     }
 
-    func resetChatView(){
-        txtField.resignFirstResponder()
-        txtField.text = ""
-        btnSend.isEnabled = false
-        scrollToUsertom()
+    private func resetChatView(){
+        DispatchQueue.main.async{
+            self.txtField.resignFirstResponder()
+            self.txtField.text = ""
+            self.btnSend.isEnabled = false
+            self.scrollToUsertom()
+        }
     }
     
     func scrollToUsertom(){
-        //        self.tableView.scrollToRow(at: IndexPath(row: self.currentChat!.messages!.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+        self.tableView.scrollToRow(at: IndexPath(row: (self.user?.chat!.messages.count)!-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
     }
 
     //    @objc func refreshView(notification:NSNotification){
@@ -115,8 +112,7 @@ extension ChatDetailViewController : UITableViewDelegate, UITableViewDataSource{
 
     func configureCell(cell: BaseTableViewCell, forRowAt indexPath: IndexPath) {
         let item = messagesArray![indexPath.row]
-        let senderName  = item.isMyMessage ? "me" : "user"
-        cell.lblText.text = "\(senderName) : \(item.body)"
+        cell.lblText.text = !item.isMyMessage ? "user : \(item.body)" : "\(item.body) : me"
     }
 }
 
