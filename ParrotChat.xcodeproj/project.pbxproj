@@ -20,7 +20,6 @@
 		E63D017E24F07EA5007CC12B /* LocalChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D017A24F07EA5007CC12B /* LocalChat.swift */; };
 		E63D017F24F07EA5007CC12B /* LocalChatFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D017B24F07EA5007CC12B /* LocalChatFeatures.swift */; };
 		E63D018024F07EA5007CC12B /* ChatFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D017C24F07EA5007CC12B /* ChatFeatures.swift */; };
-		E63D018224F080A1007CC12B /* CoreData+ChatStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D018124F080A1007CC12B /* CoreData+ChatStore.swift */; };
 		E63D018524F1C3A5007CC12B /* UserGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D018424F1C3A5007CC12B /* UserGenerator.swift */; };
 		E64050C424ED151900F8D26C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64050C324ED151900F8D26C /* User.swift */; };
 		E65A53F824EE7835002D88C8 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A53F724EE7835002D88C8 /* UserStore.swift */; };
@@ -82,7 +81,6 @@
 		E63D017A24F07EA5007CC12B /* LocalChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChat.swift; sourceTree = "<group>"; };
 		E63D017B24F07EA5007CC12B /* LocalChatFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChatFeatures.swift; sourceTree = "<group>"; };
 		E63D017C24F07EA5007CC12B /* ChatFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFeatures.swift; sourceTree = "<group>"; };
-		E63D018124F080A1007CC12B /* CoreData+ChatStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+ChatStore.swift"; sourceTree = "<group>"; };
 		E63D018424F1C3A5007CC12B /* UserGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGenerator.swift; sourceTree = "<group>"; };
 		E64050C324ED151900F8D26C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E65A53F724EE7835002D88C8 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
@@ -265,7 +263,6 @@
 			children = (
 				E66A27D024F065AF0097B163 /* CoreDataStore.swift */,
 				E66A27D424F066450097B163 /* CoreData+UserStore.swift */,
-				E63D018124F080A1007CC12B /* CoreData+ChatStore.swift */,
 				E66A27D224F066140097B163 /* CoreDataHelpers.swift */,
 				E66A27CD24F0653D0097B163 /* Store.xcdatamodeld */,
 				E65A541E24EF2C24002D88C8 /* Managed Objects */,
@@ -482,7 +479,6 @@
 				E66A27D524F066450097B163 /* CoreData+UserStore.swift in Sources */,
 				E61D9E3E24EBFB0400A29695 /* AppDelegate.swift in Sources */,
 				E66A27D324F066140097B163 /* CoreDataHelpers.swift in Sources */,
-				E63D018224F080A1007CC12B /* CoreData+ChatStore.swift in Sources */,
 				E6B875A624F2C9790037E69F /* UsersViewController.swift in Sources */,
 				E65A53FF24EE7985002D88C8 /* LocalUserFeatures.swift in Sources */,
 				E63D018024F07EA5007CC12B /* ChatFeatures.swift in Sources */,

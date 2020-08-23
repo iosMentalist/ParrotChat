@@ -25,7 +25,7 @@ class ChatDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-        //        NotificationCenterHelper.listenMessageAdded(observer: self, selector: #selector(refreshView))
+//        NotificationCenterHelper.listenMessageAdded(observer: self, selector: #selector(refreshView))
     }
 
     private func setupInterface(){
