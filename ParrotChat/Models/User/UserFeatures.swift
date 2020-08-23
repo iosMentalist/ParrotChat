@@ -24,3 +24,9 @@ public protocol UserDeleter {
 
     func delete(user:User,completion:@escaping(DeletionResult)->Void)
 }
+
+public protocol UserUpdater {
+    typealias UpdaterResult = Result<Void, Error>
+
+    func update(user:User,completion:@escaping(UpdaterResult)->Void)
+}

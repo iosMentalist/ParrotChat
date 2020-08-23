@@ -56,3 +56,20 @@ extension LocalUserFeatures : UserDeleter {
     }
 
 }
+
+extension LocalUserFeatures : UserUpdater {
+     public func update(user:User,completion:@escaping(UpdaterResult)->Void){
+
+        store.update(user: user.local){[weak self] result in
+            guard self != nil else { return }
+            switch result {
+            case .success(()):
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+
+}
