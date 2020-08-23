@@ -22,6 +22,7 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
         self.parentViewController = parentViewController
     }
 
+    //MARK: Table View
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -40,20 +41,15 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var user = model[indexPath.row]
-        if let chat = user.chat{
-            goToChatDetail(chat:chat)
-        }
-        else{
-            user.chat = Chat(messages: [], date: Date())
-            goToChatDetail(chat:user.chat!)
-        }
-
+        user.chat = (user.chat == nil) ? Chat(messages: [], date: Date()) : user.chat
+        goToChatDetail(user:user)
     }
-
-    func goToChatDetail(chat:Chat){
+    
+    //MARK: helpers
+    private func goToChatDetail(user:User){
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "ChatDetailViewController") as! ChatDetailViewController
-        vc.currentChat = chat
+        vc.user = user
         self.parentViewController.navigationController!.pushViewController(vc, animated: true)
     }
 }

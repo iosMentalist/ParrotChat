@@ -27,12 +27,5 @@ class UsersViewController: UIViewController {
 //        setupData()
 //        tableView.reloadData()
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toChatDetail" {
-            let vc = segue.destination as! ChatDetailViewController
-            vc.currentChat = (sender as! Chat)
-        }
-    }
 }
 

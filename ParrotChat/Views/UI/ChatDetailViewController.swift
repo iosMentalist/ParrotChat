@@ -5,53 +5,48 @@
 
 import UIKit
 
-class ChatDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ChatDetailViewController: UIViewController {
 
     @IBOutlet weak var vwChat: UIView!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var constBtm: NSLayoutConstraint!
+
     var messagesArray : [Message]?
-    var currentChat : Chat? {
+    var user : User? {
         willSet{
-            messagesArray = newValue?.messages
+            messagesArray = newValue?.chat!.messages
         }
     }
+    var userFeatures : LocalUserFeatures?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupInterface()
+        //        NotificationCenterHelper.listenMessageAdded(observer: self, selector: #selector(refreshView))
+    }
+
+    private func setupInterface(){
+        self.navigationItem.title = user!.name
         txtField.delegate = self
-        txtField.addTarget(self, action: #selector(textFieldsIsNotEmpty),
-                                    for: .editingChanged)
+        txtField.addTarget(self, action: #selector(textFieldsIsNotEmpty), for: .editingChanged)
         btnSend.isEnabled = false
-//        NotificationCenterHelper.listenMessageAdded(observer: self, selector: #selector(refreshView))
-         constBtm.constant = 50
+        constBtm.constant = 50
         self.view.layoutIfNeeded()
         registerForKeyboardNotifications()
     }
 
-    func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardAppear(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardDisappear(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
-
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
-    }
-
     @IBAction func sendAction(_ sender: Any) {
-//        if let msg = txtField.text, !txtField.text!.isEmpty{
+        if let msg = txtField.text, !txtField.text!.isEmpty{
+            
 //            ChatController.addToChat(chat: currentChat!, lastMsg: msg, isSender: true)
 //            resetChatView()
 //            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
 //                ChatController.addToChat(chat: self.currentChat!, lastMsg: "\(msg) \(msg)", isSender: false)
 //                self.scrollToUsertom()
 //            }
-//        }
+        }
     }
 
     func resetChatView(){
@@ -62,18 +57,26 @@ class ChatDetailViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     func scrollToUsertom(){
-//        self.tableView.scrollToRow(at: IndexPath(row: self.currentChat!.messages!.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+        //        self.tableView.scrollToRow(at: IndexPath(row: self.currentChat!.messages!.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
     }
 
-    @objc func refreshView(notification:NSNotification){
-        if let chat = notification.userInfo?["chat"] as? Chat {
-            self.currentChat = chat
-            tableView.reloadData()
-        }
+//    @objc func refreshView(notification:NSNotification){
+//        if let chat = notification.userInfo?["chat"] as? Chat {
+//            self.currentChat = chat
+//            tableView.reloadData()
+//        }
+//    }
+
+    //MARK: Handle Keyboard
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
+
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
     }
 
-    //MARK: UITableViewDelegate
-
+}
+//MARK: - table view delegates
+extension ChatDetailViewController : UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -104,8 +107,14 @@ class ChatDetailViewController: UIViewController,UITableViewDelegate,UITableView
 }
 
 
-//MARK: - extensions
+//MARK: - keyboard hanlding
 extension ChatDetailViewController {
+
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardAppear(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardDisappear(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
+    }
 
     @objc func onKeyboardAppear(_ notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
@@ -122,9 +131,11 @@ extension ChatDetailViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
 }
+
+//MARK: - UITextField Delegate Methods
 extension ChatDetailViewController : UITextFieldDelegate{
-    //MARK: - UITextField Delegate Methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.txtField.resignFirstResponder()
         return true
@@ -135,3 +146,5 @@ extension ChatDetailViewController : UITextFieldDelegate{
         btnSend.isEnabled = !sender.text!.isEmpty
     }
 }
+
+
