@@ -10,16 +10,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let coredatastore = try! CoreDataStore(storeName: "Store.sqlite")
-        let users = UserGenerator.generateUsers()
-        for user in users{
-            testInsertUser(coredatastore, user: user)
-        }
-        var user = users.first!
+        debugPrint(coredatastore)
+//        var user = UserGenerator.generateUsers().first!
+//        user.chat = Chat(messages: [Message(body: "body", date: Date(), isMyMessage: true)], date: Date())
+//        testInsertUser(coredatastore, user: user)
 
-        user.chat = Chat(messages: [Message(body: "body", date: Date(), isMyMessage: true)], date: Date())
+//        testRetrieveAllUser(coredatastore)
+//        testRetrieveAllUser(coredatastore)
 
-        //        testInsertUser(coredatastore)
-        //        testRetrieveUser(coredatastore)
+//        testRetrieveandUpdateFirstUser(coredatastore)
+        testUpdateUser(coredatastore, localUser: LocalUser(id: UUID(uuidString: "EC822A08-124E-4CD5-BCCB-CD9508F146C2")!, name: "User 1", imageName: "", chat: LocalChat(messages: [LocalMessage(body: "Newswer", date: Date(), isMyMessage: true)], date: Date())))
+
 //        let chat = testInsertChat(coredatastore)
 //        testRetrieveChat(coredatastore ,id:chat.id)
 //        testUpdateMessages(coredatastore,chat)
@@ -42,36 +43,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coredatastore.insert(user:local) { (result) in
             switch result {
             case .success():
-                debugPrint("testInsertUser success")
+                debugPrint("testInsertUser success \(local.id)")
             case.failure(let error):
                 debugPrint("testInsertUser error \(error)")
             }
         }
     }
 
-    func insertUser(_ coredatastore:CoreDataStore,user:LocalUser){
-        coredatastore.insert(user: user) { (result) in
-            switch result {
-            case .success():
-                debugPrint("testInsertUser success")
-            case.failure(let error):
-                debugPrint("testInsertUser error \(error)")
-            }
-        }
-    }
-
-
-
-    func testRetrieveUser(_ coredatastore:CoreDataStore){
+    func testRetrieveandUpdateFirstUser(_ coredatastore:CoreDataStore) {
+        debugPrint(coredatastore)
         coredatastore.retrieveAllUsers { (result) in
             switch result {
             case .success(let users):
-                debugPrint("testRetrieveUser success \(users.count)")
+                debugPrint("testRetrieveUser success \(users.first!.id)")
+                debugPrint(coredatastore)
+                self.testUpdateUser(coredatastore, localUser: users.first!)
             case.failure(let error):
                 debugPrint("testRetrieveUser error \(error)")
             }
         }
     }
+
+    func testRetrieveAllUser(_ coredatastore:CoreDataStore) {
+           coredatastore.retrieveAllUsers { (result) in
+               switch result {
+               case .success(let users):
+                   debugPrint("testRetrieveUser success \(users.count)")
+               case.failure(let error):
+                   debugPrint("testRetrieveUser error \(error)")
+               }
+           }
+       }
 
     func testInsertChat(_ coredatastore:CoreDataStore) -> LocalChat{
         let localMsg1 = LocalMessage(body: "mesage1", date: Date(), isMyMessage: true)
@@ -97,6 +99,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 debugPrint("testRetriveChat success \(chat)")
             case.failure(let error):
                 debugPrint("testRetriveChat error \(error)")
+            }
+        }
+    }
+
+    func testUpdateUser(_ coredatastore:CoreDataStore, localUser : LocalUser){
+
+        var updatedUser = localUser
+        updatedUser.chat?.messages.append(LocalMessage(body: "first message", date: Date(), isMyMessage: false))
+        debugPrint(coredatastore)
+        coredatastore.update(user: updatedUser){(result) in
+            switch result {
+            case .success(let chat):
+                debugPrint("testUpdateUser success \(chat)")
+            case.failure(let error):
+                debugPrint("testUpdateUser error \(error)")
             }
         }
     }

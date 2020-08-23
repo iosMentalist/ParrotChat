@@ -2,7 +2,6 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ManagedChat" representedClassName="ManagedChat" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ManagedMessage"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedUser" inverseName="chat" inverseEntity="ManagedUser"/>
     </entity>
@@ -16,11 +15,10 @@
         <attribute name="imageName" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="chat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedChat" inverseName="user" inverseEntity="ManagedChat"/>
-        <relationship name="lastMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedMessage"/>
     </entity>
     <elements>
-        <element name="ManagedChat" positionX="0" positionY="81" width="128" height="103"/>
+        <element name="ManagedChat" positionX="0" positionY="81" width="128" height="88"/>
         <element name="ManagedMessage" positionX="-18" positionY="27" width="128" height="88"/>
-        <element name="ManagedUser" positionX="-18" positionY="54" width="128" height="118"/>
+        <element name="ManagedUser" positionX="-18" positionY="54" width="128" height="103"/>
     </elements>
 </model>

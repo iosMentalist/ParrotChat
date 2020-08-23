@@ -17,6 +17,12 @@ public struct LocalChat {
 
 extension Chat{
     var local : LocalChat{
-        return LocalChat(messages: self.messages.map{$0.toLocal()}, date: self.date)
+        return LocalChat(messages: self.messages.map{$0.local}, date: self.date)
+    }
+}
+
+extension LocalChat{
+    var model : Chat{
+        return Chat(messages: self.messages.map{$0.model}, date: self.date)
     }
 }

@@ -13,6 +13,13 @@ class ManagedUser: NSManagedObject {
 }
 
 extension ManagedUser {
+    var local : LocalUser{
+        return LocalUser(id: self.id, name: self.name, imageName: self.imageName, chat: self.chat?.local ?? nil)
+    }
+}
+
+//MARK: Core data helpers
+extension ManagedUser {
     static func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedUser {
         return ManagedUser(context: context)
     }
@@ -23,9 +30,6 @@ extension ManagedUser {
         return try context.fetch(request)
     }
 
-    var local : LocalUser{
-        return LocalUser(id: self.id, name: self.name, imageName: self.imageName, chat: self.chat?.local ?? nil)
-    }
 
     static func newManagedUserFrom(local:LocalUser, in context: NSManagedObjectContext) -> ManagedUser{
         let managedUser = try! ManagedUser.newUniqueInstance(in: context)
@@ -39,11 +43,12 @@ extension ManagedUser {
         return managedUser
     }
 
-//    static func find(id:UUID,context: NSManagedObjectContext) throws -> [ManagedChat]? {
-//        let request = NSFetchRequest<ManagedChat>(entityName: entity().name!)
-//        request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(ManagedChat.id),id])
-//        request.returnsObjectsAsFaults = false
-//        return try context.fetch(request)
-//    }
+    static func first(id:UUID,context: NSManagedObjectContext) throws -> [ManagedUser]? {
+        let request = NSFetchRequest<ManagedUser>(entityName: entity().name!)
+//        request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(ManagedUser.id),id])
+        request.returnsObjectsAsFaults = false
+//        request.fetchLimit = 1
+        return try context.fetch(request)
+    }
 }
 

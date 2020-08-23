@@ -15,9 +15,12 @@ public protocol UserStore{
     typealias DeletionCompletion =  (DeletionResult) -> Void
     typealias DeletionResult = Result<Void, Error>
 
-
+    typealias UpdateCompletion =  (UpdateResult) -> Void
+    typealias UpdateResult = Result<Void, Error>
+    
     func insert(user:LocalUser, completion: @escaping InsertionCompletion)
     func retrieveAllUsers(completion:@escaping RetrieveCompletion)
     func delete(user:LocalUser, completion: @escaping DeletionCompletion)
+    func update(user: LocalUser, completion: @escaping UpdateCompletion)
 
 }

@@ -27,7 +27,7 @@ public final class CoreDataStore {
             let url = NSPersistentContainer
             .defaultDirectoryURL().appendingPathComponent(storeName)
             debugPrint("core datastore \(url)")
-            container = try NSPersistentContainer.load(name: CoreDataStore.modelName, model: model, url:url  )
+            container = try NSPersistentContainer.load(name: CoreDataStore.modelName, model: model, url:url)
             context = container.newBackgroundContext()
         } catch {
             throw StoreError.failedToLoadPersistentContainer(error)

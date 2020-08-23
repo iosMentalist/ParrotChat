@@ -27,3 +27,8 @@ extension User{
         return LocalUser(id: self.id, name: self.name, imageName: self.imageName, chat: self.chat?.local ?? nil)
     }
 }
+extension LocalUser{
+    var model : User{
+        return User(id: self.id, name: self.name, imageName: self.imageName, chat: self.chat?.model ?? nil)
+    }
+}

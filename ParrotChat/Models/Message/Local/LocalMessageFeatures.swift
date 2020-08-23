@@ -17,7 +17,7 @@ public class LocalMessageFeatures {
 extension LocalMessageFeatures : MessageSaver {
     public func save(message:Message,completion:@escaping(InsertionResult)->Void){
 
-        store.insert(message: message.toLocal()){[weak self] result in
+        store.insert(message: message.local){[weak self] result in
             guard self != nil else { return }
             
             switch result {
@@ -49,7 +49,7 @@ extension LocalMessageFeatures : MessageRetriever {
 extension LocalMessageFeatures : MessageDeleter {
      public func delete(message:Message,completion:@escaping(DeletionResult)->Void){
 
-        store.delete(message: message.toLocal()){[weak self] result in
+        store.delete(message: message.local){[weak self] result in
             guard self != nil else { return }
 
 
