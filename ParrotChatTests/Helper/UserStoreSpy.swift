@@ -8,8 +8,6 @@ import ParrotChat
 
 class UserStoreSpy : UserStore {
 
-
-
     enum ReceivedInvocation : Equatable{
         case insert(LocalUser)
         case retrieve
@@ -35,6 +33,10 @@ class UserStoreSpy : UserStore {
     func delete(user: LocalUser, completion: @escaping DeletionCompletion) {
         deletionCompletions.append(completion)
         receivedInvocations.append(.delete)
+    }
+
+    func update(user: LocalUser, completion: @escaping UpdateCompletion) {
+
     }
 
     //MARK: Spy's insert functions

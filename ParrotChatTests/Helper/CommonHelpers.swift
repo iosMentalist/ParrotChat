@@ -9,9 +9,9 @@ import ParrotChat
 
 //helper function that sends back the same user for model and local boundaires
 func anyUser() -> (model:User,local:LocalUser){
-    let model =  User(name: "user name", imageName: "image", chat: nil)
+    let model =  User(id: UUID(), name: "user name", imageName: "image", chat: nil)
 
-    let local =  LocalUser(name: "user name", imageName: "image", chat: nil)
+    let local =  LocalUser(id: UUID(), name: "user name", imageName: "image", chat: nil)
 
     return(model,local)
 }
