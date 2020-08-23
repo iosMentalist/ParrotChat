@@ -7,6 +7,7 @@ import UIKit
 
 class ChatDetailViewController: UIViewController {
 
+    private let VIEW_CHAT_BOTTOM_CONSTANT : CGFloat = 0
     @IBOutlet weak var vwChat: UIView!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var txtField: UITextField!
@@ -32,20 +33,33 @@ class ChatDetailViewController: UIViewController {
         txtField.delegate = self
         txtField.addTarget(self, action: #selector(textFieldsIsNotEmpty), for: .editingChanged)
         btnSend.isEnabled = false
-        constBtm.constant = 50
+        constBtm.constant = VIEW_CHAT_BOTTOM_CONSTANT
         self.view.layoutIfNeeded()
         registerForKeyboardNotifications()
     }
 
     @IBAction func sendAction(_ sender: Any) {
         if let msg = txtField.text, !txtField.text!.isEmpty{
-            
-//            ChatController.addToChat(chat: currentChat!, lastMsg: msg, isSender: true)
-//            resetChatView()
-//            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
-//                ChatController.addToChat(chat: self.currentChat!, lastMsg: "\(msg) \(msg)", isSender: false)
-//                self.scrollToUsertom()
-//            }
+            user?.chat?.messages.append(Message(body: msg, date: Date(), isMyMessage: true))
+            self.tableView.reloadData()
+            parrotAnswer(msg)
+        }
+    }
+
+    func parrotAnswer(_ msg:String){
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self]_ in
+            guard let self = self else {return}
+            self.user?.chat?.messages.append(Message(body: "\(msg) \(msg)", date: Date(), isMyMessage: false))
+            self.tableView.reloadData()
+            self.userFeatures?.update(user: self.user!, completion: { (result) in
+                switch result {
+                case .success():
+                    debugPrint("update success")
+                case .failure(let error) :
+                    debugPrint("update error \(error)")
+                }
+            })
+            self.scrollToUsertom()
         }
     }
 
@@ -60,12 +74,12 @@ class ChatDetailViewController: UIViewController {
         //        self.tableView.scrollToRow(at: IndexPath(row: self.currentChat!.messages!.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
     }
 
-//    @objc func refreshView(notification:NSNotification){
-//        if let chat = notification.userInfo?["chat"] as? Chat {
-//            self.currentChat = chat
-//            tableView.reloadData()
-//        }
-//    }
+    //    @objc func refreshView(notification:NSNotification){
+    //        if let chat = notification.userInfo?["chat"] as? Chat {
+    //            self.currentChat = chat
+    //            tableView.reloadData()
+    //        }
+    //    }
 
     //MARK: Handle Keyboard
     deinit {
@@ -126,7 +140,7 @@ extension ChatDetailViewController {
     }
 
     @objc func onKeyboardDisappear(_ notification: NSNotification) {
-        constBtm.constant = 50
+        constBtm.constant = VIEW_CHAT_BOTTOM_CONSTANT
         UIView.animate(withDuration: 0.2) {
             self.view.layoutIfNeeded()
         }

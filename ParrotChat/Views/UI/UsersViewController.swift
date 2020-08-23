@@ -8,9 +8,10 @@ import UIKit
 class UsersViewController: UIViewController {
 
     @IBOutlet var tableUsersController: TableUserController!
+    var userFeautres : LocalUserFeatures?
     var model : [User]? {
         willSet{
-            tableUsersController.setup(parentViewController: self,model:newValue!)
+            tableUsersController.setup(parentViewController: self,model:newValue!,userFeautres: userFeautres!)
         }
     }
 

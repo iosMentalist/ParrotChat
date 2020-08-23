@@ -19,7 +19,7 @@ struct UserViewComposer {
         userFeature.retrieveAllUsers(completion: { result in
             switch result {
             case.success(let localUsers) :
-                localUsers.isEmpty ? generateUsers(userFeature,vc: vc) :         setupViewControllerModel(for: vc, with: localUsers)
+                localUsers.isEmpty ? generateUsers(userFeature,vc: vc) :         setupViewControllerModel(viewController: vc, users: localUsers, userFeature: userFeature)
 
             case.failure(let error):
                 debugPrint("error in retriveing user from db \(error)")
@@ -39,10 +39,11 @@ struct UserViewComposer {
                 }
             })
         }
-        setupViewControllerModel(for: vc, with: users.map{$0.local})
+        setupViewControllerModel(viewController:vc, users: users.map{$0.local}, userFeature:userFeature)
     }
-    static private func setupViewControllerModel(for vc:UsersViewController,with users:[LocalUser]){
-        vc.model = users.map{$0.model}
+    static private func setupViewControllerModel(viewController:UsersViewController, users :[LocalUser], userFeature:LocalUserFeatures){
+        viewController.userFeautres = userFeature
+        viewController.model = users.map{$0.model}
     }
 
 }

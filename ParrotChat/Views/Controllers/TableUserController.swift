@@ -8,6 +8,7 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
 
     var model = [User]()
     var parentViewController : UIViewController!
+    var userFeautres : LocalUserFeatures?
 
     @IBOutlet var tableView : UITableView!{
         didSet{
@@ -17,9 +18,10 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
         }
     }
 
-    func setup(parentViewController:UIViewController,model:[User]){
+    func setup(parentViewController:UIViewController, model:[User],userFeautres : LocalUserFeatures){
         self.model = model
         self.parentViewController = parentViewController
+        self.userFeautres = userFeautres
     }
 
     //MARK: Table View
@@ -44,12 +46,10 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
         user.chat = (user.chat == nil) ? Chat(messages: [], date: Date()) : user.chat
         goToChatDetail(user:user)
     }
-    
+
     //MARK: helpers
     private func goToChatDetail(user:User){
-        let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "ChatDetailViewController") as! ChatDetailViewController
-        vc.user = user
+        let vc = ChatViewComposer.create(userFeatures: userFeautres!, user:user)
         self.parentViewController.navigationController!.pushViewController(vc, animated: true)
     }
 }

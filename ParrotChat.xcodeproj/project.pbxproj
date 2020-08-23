@@ -51,6 +51,7 @@
 		E6B875B624F2CE360037E69F /* ReceiverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875B224F2CE360037E69F /* ReceiverTableViewCell.swift */; };
 		E6B875B824F2DC7E0037E69F /* UserViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875B724F2DC7E0037E69F /* UserViewComposer.swift */; };
 		E6B875BA24F30F320037E69F /* UserFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875B924F30F320037E69F /* UserFeatures.swift */; };
+		E6B875BC24F316FD0037E69F /* ChatViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875BB24F316FD0037E69F /* ChatViewComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		E6B875B224F2CE360037E69F /* ReceiverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiverTableViewCell.swift; sourceTree = "<group>"; };
 		E6B875B724F2DC7E0037E69F /* UserViewComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewComposer.swift; sourceTree = "<group>"; };
 		E6B875B924F30F320037E69F /* UserFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeatures.swift; sourceTree = "<group>"; };
+		E6B875BB24F316FD0037E69F /* ChatViewComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewComposer.swift; sourceTree = "<group>"; };
 		E6F855DB24EC2AE900CB270D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +195,7 @@
 				E6B875A724F2CC700037E69F /* NotificationCenterHelper.swift */,
 				E63D018424F1C3A5007CC12B /* UserGenerator.swift */,
 				E6B875B724F2DC7E0037E69F /* UserViewComposer.swift */,
+				E6B875BB24F316FD0037E69F /* ChatViewComposer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				E65A542024EF2C36002D88C8 /* ManagedChat.swift in Sources */,
 				E63D015B24F07C10007CC12B /* MessageStore.swift in Sources */,
 				E6B875B524F2CE360037E69F /* UserTableViewCell.swift in Sources */,
+				E6B875BC24F316FD0037E69F /* ChatViewComposer.swift in Sources */,
 				E65A542424EF2D0B002D88C8 /* ManagedMessage.swift in Sources */,
 				E65A53FC24EE7896002D88C8 /* LocalMessage.swift in Sources */,
 				E63D017F24F07EA5007CC12B /* LocalChatFeatures.swift in Sources */,

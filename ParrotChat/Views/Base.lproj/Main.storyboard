@@ -230,6 +230,7 @@
                     <navigationItem key="navigationItem" id="sbQ-k0-kwu"/>
                     <connections>
                         <outlet property="btnSend" destination="eFJ-1a-aB7" id="nd0-T9-hTi"/>
+                        <outlet property="constBtm" destination="B1K-ZQ-1qb" id="2Yx-5V-VBc"/>
                         <outlet property="tableView" destination="p6B-1p-Wk2" id="fXg-tx-5Qw"/>
                         <outlet property="txtField" destination="myR-Lf-ZsF" id="Cb5-SM-1ah"/>
                         <outlet property="vwChat" destination="pZU-Cf-ae0" id="EfM-E0-LWS"/>
