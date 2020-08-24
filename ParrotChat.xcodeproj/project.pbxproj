@@ -32,7 +32,6 @@
 		E6B875A624F2C9790037E69F /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875A424F2C9790037E69F /* UsersViewController.swift */; };
 		E6B875A824F2CC710037E69F /* NotificationCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875A724F2CC700037E69F /* NotificationCenterHelper.swift */; };
 		E6B875AB24F2CD400037E69F /* TableUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875AA24F2CD400037E69F /* TableUserController.swift */; };
-		E6B875AE24F2CDA30037E69F /* TableUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875AD24F2CDA30037E69F /* TableUserViewModel.swift */; };
 		E6B875B324F2CE360037E69F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875AF24F2CE360037E69F /* BaseTableViewCell.swift */; };
 		E6B875B424F2CE360037E69F /* SenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875B024F2CE360037E69F /* SenderTableViewCell.swift */; };
 		E6B875B524F2CE360037E69F /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875B124F2CE360037E69F /* UserTableViewCell.swift */; };
@@ -87,7 +86,6 @@
 		E6B875A424F2C9790037E69F /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		E6B875A724F2CC700037E69F /* NotificationCenterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterHelper.swift; sourceTree = "<group>"; };
 		E6B875AA24F2CD400037E69F /* TableUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableUserController.swift; sourceTree = "<group>"; };
-		E6B875AD24F2CDA30037E69F /* TableUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableUserViewModel.swift; sourceTree = "<group>"; };
 		E6B875AF24F2CE360037E69F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		E6B875B024F2CE360037E69F /* SenderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SenderTableViewCell.swift; sourceTree = "<group>"; };
 		E6B875B124F2CE360037E69F /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 		E6B875AC24F2CD980037E69F /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				E6B875AD24F2CDA30037E69F /* TableUserViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -411,7 +408,6 @@
 				E6B875C624F326D20037E69F /* LocalUser.swift in Sources */,
 				E6B875A824F2CC710037E69F /* NotificationCenterHelper.swift in Sources */,
 				E63D018524F1C3A5007CC12B /* UserGenerator.swift in Sources */,
-				E6B875AE24F2CDA30037E69F /* TableUserViewModel.swift in Sources */,
 				E65A542024EF2C36002D88C8 /* ManagedChat.swift in Sources */,
 				E6B875C924F326D20037E69F /* UserStore.swift in Sources */,
 				E6B875B524F2CE360037E69F /* UserTableViewCell.swift in Sources */,
