@@ -21,13 +21,31 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
     }
 
     func setup(parentViewController:UIViewController, model:[User],userFeautres : LocalUserFeatures){
-        self.model = model
         self.parentViewController = parentViewController
         self.userFeautres = userFeautres
+        updateModel(model: model)
+        NotificationCenterHelper.listenMessageAdded(observer: self, selector: #selector(userUpdated))
+    }
+
+    private func updateModel(model:[User]){
+        self.model = model
         self.setupViewModelArray()
     }
 
+    @objc private func userUpdated(){
+        userFeautres?.retrieveAllUsers(){ result in
+            switch result {
+            case.success(let localUsers) :
+                self.updateModel(model: localUsers.map{$0.model})
+                DispatchQueue.main.async{ self.tableView.reloadData()}
+            case.failure(let error):
+                debugPrint("error in retriveing user from db \(error)")
+            }
+        }
+
+    }
     private func setupViewModelArray(){
+        viewModel.removeAll()
         var usersWithChats = model.filter{$0.chat != nil &&  $0.chat!.messages.count > 0}
         usersWithChats.sort(by: { $0.chat!.messages.last!.date.compare($1.chat!.messages.last!.date) == .orderedDescending})
         let usersWithNoChats = model.filter{$0.chat == nil ||  $0.chat!.messages.count == 0}
@@ -57,6 +75,10 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
         }
         cell.imgProfile?.image = UIImage(named: item.imageName)
         return cell
+    }
+
+    private func configureCell(cell:UserTableViewCell,user item:User){
+
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

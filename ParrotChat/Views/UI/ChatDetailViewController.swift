@@ -25,7 +25,6 @@ class ChatDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-//        NotificationCenterHelper.listenMessageAdded(observer: self, selector: #selector(refreshView))
     }
 
     private func setupInterface(){
@@ -42,19 +41,23 @@ class ChatDetailViewController: UIViewController {
 
     @IBAction func sendAction(_ sender: Any) {
         if let msg = txtField.text, !txtField.text!.isEmpty{
-            user?.chat?.messages.append(Message(body: msg, date: Date(), isMyMessage: true))
-            self.tableView.reloadData()
+            appendMessage(Message(body: msg, date: Date(), isMyMessage: true))
             self.resetChatView()
             parrotAnswer(msg)
         }
+    }
+    private func appendMessage(_ message:Message){
+        user?.chat?.messages.append(message)
+        self.tableView.reloadData()
     }
 
     private func parrotAnswer(_ msg:String){
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self]_ in
             guard let self = self else {return}
-            self.user?.chat?.messages.append(Message(body: "\(msg) \(msg)", date: Date(), isMyMessage: false))
-            self.tableView.reloadData()
-            self.userFeatures?.update(user: self.user!, completion: { _ in })
+            self.appendMessage(Message(body: "\(msg) \(msg)", date: Date(), isMyMessage: false))
+            self.userFeatures?.update(user: self.user!, completion: { _ in
+                NotificationCenterHelper.postMessageAdded(user: self.user!)
+            })
         }
     }
 
@@ -70,13 +73,6 @@ class ChatDetailViewController: UIViewController {
     func scrollToUsertom(){
         self.tableView.scrollToRow(at: IndexPath(row: (self.user?.chat!.messages.count)!-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
     }
-
-    //    @objc func refreshView(notification:NSNotification){
-    //        if let chat = notification.userInfo?["chat"] as? Chat {
-    //            self.currentChat = chat
-    //            tableView.reloadData()
-    //        }
-    //    }
 
     //MARK: Handle Keyboard
     deinit {

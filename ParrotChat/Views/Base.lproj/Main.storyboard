@@ -30,14 +30,14 @@
                                                     <rect key="frame" x="24" y="0.0" width="378" height="75"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile1" translatesAutoresizingMaskIntoConstraints="NO" id="MYG-4U-lFe">
-                                                            <rect key="frame" x="0.0" y="7.5" width="60" height="60"/>
+                                                            <rect key="frame" x="0.0" y="12.5" width="50" height="50"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="9Rc-da-KfN"/>
                                                                 <constraint firstAttribute="width" secondItem="MYG-4U-lFe" secondAttribute="height" multiplier="1:1" id="A1x-lh-i2i"/>
-                                                                <constraint firstAttribute="width" constant="60" id="gDV-o9-hv5"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AGM-qn-JB5">
-                                                            <rect key="frame" x="84" y="11" width="294" height="53"/>
+                                                            <rect key="frame" x="74" y="11" width="304" height="53"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivD-8m-cut">
                                                                     <rect key="frame" x="0.0" y="0.0" width="42" height="22"/>

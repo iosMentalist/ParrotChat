@@ -13,7 +13,11 @@ class UserTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imgProfile.layer.cornerRadius = imgProfile.frame.width / 2 
+        imgProfile.layer.borderWidth = 1.0
+        imgProfile.layer.masksToBounds = false
+        imgProfile.layer.borderColor = UIColor.white.cgColor
+        imgProfile.layer.cornerRadius = imgProfile.frame.size.width / 2
+        imgProfile.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
