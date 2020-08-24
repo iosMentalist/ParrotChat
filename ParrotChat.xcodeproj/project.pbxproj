@@ -228,9 +228,8 @@
 		E68D9EB724ED3274005AEB83 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E6B875AC24F2CD980037E69F /* View Models */,
-				E6B875A924F2CD250037E69F /* Controllers */,
 				E6B5AE0224F2C8FD008B7A59 /* UI */,
+				E6B875A924F2CD250037E69F /* Controllers */,
 				E6B5AE0124F2C8F7008B7A59 /* Cells */,
 				E61D9E4324EBFB0400A29695 /* Main.storyboard */,
 				E61D9E4624EBFB0600A29695 /* Assets.xcassets */,
@@ -265,13 +264,6 @@
 				E6B875AA24F2CD400037E69F /* TableUserController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		E6B875AC24F2CD980037E69F /* View Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Models";
 			sourceTree = "<group>";
 		};
 		E6B875BD24F325780037E69F /* Features */ = {
