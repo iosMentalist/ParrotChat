@@ -7,6 +7,7 @@ import UIKit
 class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
 
     var model = [User]()
+    var viewModel = [User]()
     var parentViewController : UIViewController!
     var userFeautres : LocalUserFeatures?
 
@@ -23,6 +24,15 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
         self.model = model
         self.parentViewController = parentViewController
         self.userFeautres = userFeautres
+        self.setupViewModelArray()
+    }
+
+    private func setupViewModelArray(){
+        var usersWithChats = model.filter{$0.chat != nil &&  $0.chat!.messages.count > 0}
+        usersWithChats.sort(by: { $0.chat!.messages.last!.date.compare($1.chat!.messages.last!.date) == .orderedDescending})
+        let usersWithNoChats = model.filter{$0.chat == nil ||  $0.chat!.messages.count == 0}
+        viewModel.append(contentsOf: usersWithChats)
+        viewModel.append(contentsOf: usersWithNoChats)
     }
 
     //MARK: Table View
@@ -30,11 +40,11 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.count
+        return viewModel.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = model[indexPath.row]
+        let item = viewModel[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell") as! UserTableViewCell
         cell.lblUserName?.text = item.name
         if let lastmsg = item.chat?.messages.last{
@@ -50,7 +60,7 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var user = model[indexPath.row]
+        var user = viewModel[indexPath.row]
         user.chat = (user.chat == nil) ? Chat(messages: [], date: Date()) : user.chat
         goToChatDetail(user:user)
     }
