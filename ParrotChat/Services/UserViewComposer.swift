@@ -13,8 +13,9 @@ struct UserViewComposer {
         setupModel(with: userFeautres, for: vc)
         return vc
     }
-
-    //MARK: Helpers methods
+}
+//MARK: Helpers methods
+extension UserViewComposer {
     static func setupModel(with userFeature : LocalUserFeatures, for vc:UsersViewController){
         userFeature.retrieveAllUsers(completion: { result in
             switch result {

@@ -25,10 +25,6 @@ extension Message{
 }
 extension LocalMessage{
 
-    static func localMessagesFrom(managedMessages:[ManagedMessage]) -> [LocalMessage]{
-       return managedMessages.map{LocalMessage(body: $0.body, date: $0.date, isMyMessage: $0.isMyMessage)}
-    }
-
     var model : Message{
         return Message(body: self.body, date: self.date, isMyMessage: self.isMyMessage)
     }

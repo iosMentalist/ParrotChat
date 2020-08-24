@@ -44,6 +44,7 @@
 		E6B875C724F326D20037E69F /* LocalChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875C224F326D10037E69F /* LocalChat.swift */; };
 		E6B875C824F326D20037E69F /* LocalUserFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875C324F326D10037E69F /* LocalUserFeatures.swift */; };
 		E6B875C924F326D20037E69F /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B875C424F326D10037E69F /* UserStore.swift */; };
+		E6B875CB24F412610037E69F /* design.png in Resources */ = {isa = PBXBuildFile; fileRef = E6B875CA24F412610037E69F /* design.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		E6B875C224F326D10037E69F /* LocalChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChat.swift; sourceTree = "<group>"; };
 		E6B875C324F326D10037E69F /* LocalUserFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalUserFeatures.swift; sourceTree = "<group>"; };
 		E6B875C424F326D10037E69F /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		E6B875CA24F412610037E69F /* design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = design.png; sourceTree = "<group>"; };
 		E6F855DB24EC2AE900CB270D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				E6F855DB24EC2AE900CB270D /* README.md */,
+				E6B875CA24F412610037E69F /* design.png */,
 				E61D9E3C24EBFB0400A29695 /* ParrotChat */,
 				E61D9E5324EBFB0600A29695 /* ParrotChatTests */,
 				E61D9E3B24EBFB0400A29695 /* Products */,
@@ -379,6 +382,7 @@
 				E61D9E4A24EBFB0600A29695 /* LaunchScreen.storyboard in Resources */,
 				E61D9E4724EBFB0600A29695 /* Assets.xcassets in Resources */,
 				E61D9E4524EBFB0400A29695 /* Main.storyboard in Resources */,
+				E6B875CB24F412610037E69F /* design.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

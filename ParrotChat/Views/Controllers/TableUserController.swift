@@ -99,7 +99,7 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
 extension Date{
     func toString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd"
+        dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeZone = NSTimeZone.local
         dateFormatter.locale = NSLocale(localeIdentifier: "en") as Locale
         let string = dateFormatter.string(from: self)
