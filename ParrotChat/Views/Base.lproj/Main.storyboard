@@ -39,12 +39,26 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AGM-qn-JB5">
                                                             <rect key="frame" x="74" y="11" width="304" height="53"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivD-8m-cut">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="22"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="6I0-AH-jOm">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="22"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivD-8m-cut">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="22"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDi-zd-IOs">
+                                                                            <rect key="frame" x="262" y="0.0" width="42" height="22"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="ivD-8m-cut" firstAttribute="leading" secondItem="6I0-AH-jOm" secondAttribute="leading" id="DEV-eH-O4Q"/>
+                                                                    </constraints>
+                                                                </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcx-XJ-wr7">
                                                                     <rect key="frame" x="0.0" y="30" width="42" height="23"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -53,6 +67,7 @@
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="6I0-AH-jOm" secondAttribute="trailing" id="1X8-kG-aoS"/>
                                                                 <constraint firstAttribute="bottom" secondItem="wcx-XJ-wr7" secondAttribute="bottom" id="fwN-bW-yZh"/>
                                                             </constraints>
                                                         </stackView>
@@ -83,6 +98,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imgProfile" destination="MYG-4U-lFe" id="LAe-hu-G15"/>
+                                            <outlet property="lblDate" destination="kDi-zd-IOs" id="F7c-CA-hDZ"/>
                                             <outlet property="lblLastMsg" destination="wcx-XJ-wr7" id="1hm-NM-bP7"/>
                                             <outlet property="lblUserName" destination="ivD-8m-cut" id="6BM-YT-XI1"/>
                                         </connections>
@@ -118,7 +134,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="-310" y="-167"/>
+            <point key="canvasLocation" x="-310.14492753623193" y="-167.41071428571428"/>
         </scene>
         <!--Chat Detail View Controller-->
         <scene sceneID="DpC-6S-XVv">
