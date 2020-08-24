@@ -5,7 +5,7 @@
 
 import Foundation
 
-let NUMBER_OF_USERS = 10
+let NUMBER_OF_USERS = 200
 
 final class UserGenerator{
     static func generateUsers() -> [User]{
