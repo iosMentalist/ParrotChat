@@ -1,5 +1,5 @@
 #  Parrot Chat
-Parrot chat is a refactored version of my project of  `Chat Bot` .
+Parrot chat is a refactored version of my project of  [Chat Bot](https://github.com/shadyk/ChatBot) .
 
 It is  a  mock messaging chat application that echoes any text sent.
 
