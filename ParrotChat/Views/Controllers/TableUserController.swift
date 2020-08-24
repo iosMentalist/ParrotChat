@@ -5,12 +5,12 @@
 
 import UIKit
 class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
-
+    
     var model = [User]()
     var viewModel = [User]()
     var parentViewController : UIViewController!
     var userFeautres : LocalUserFeatures?
-
+    
     @IBOutlet var tableView : UITableView!{
         didSet{
             tableView.rowHeight = UITableView.automaticDimension
@@ -19,19 +19,19 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
             tableView.dataSource = self
         }
     }
-
+    
     func setup(parentViewController:UIViewController, model:[User],userFeautres : LocalUserFeatures){
         self.parentViewController = parentViewController
         self.userFeautres = userFeautres
         updateModel(model: model)
         NotificationCenterHelper.listenMessageAdded(observer: self, selector: #selector(userUpdated))
     }
-
+    
     private func updateModel(model:[User]){
         self.model = model
         self.setupViewModelArray()
     }
-
+    
     @objc private func userUpdated(){
         userFeautres?.retrieveAllUsers(){ result in
             switch result {
@@ -42,7 +42,7 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
                 debugPrint("error in retriveing user from db \(error)")
             }
         }
-
+        
     }
     private func setupViewModelArray(){
         viewModel.removeAll()
@@ -52,7 +52,7 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
         viewModel.append(contentsOf: usersWithChats)
         viewModel.append(contentsOf: usersWithNoChats)
     }
-
+    
     //MARK: Table View
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -60,12 +60,18 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = viewModel[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell") as! UserTableViewCell
+        configureCell(cell: cell, user: item)
+        return cell
+    }
+    
+    private func configureCell(cell:UserTableViewCell,user item:User){
         cell.lblUserName?.text = item.name
         if let lastmsg = item.chat?.messages.last{
+            cell.lblLastMsg.isHidden = false
             cell.lblLastMsg?.text = "\(lastmsg.body)\n\(lastmsg.date.toString())"
             cell.lblLastMsg.textColor = .lightGray
             cell.lblLastMsg.font = UIFont.systemFont(ofSize: 12)
@@ -74,19 +80,14 @@ class TableUserController :NSObject, UITableViewDelegate, UITableViewDataSource{
             cell.lblLastMsg.isHidden = true
         }
         cell.imgProfile?.image = UIImage(named: item.imageName)
-        return cell
     }
-
-    private func configureCell(cell:UserTableViewCell,user item:User){
-
-    }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var user = viewModel[indexPath.row]
         user.chat = (user.chat == nil) ? Chat(messages: [], date: Date()) : user.chat
         goToChatDetail(user:user)
     }
-
+    
     //MARK: helpers
     private func goToChatDetail(user:User){
         let vc = ChatViewComposer.create(userFeatures: userFeautres!, user:user)
@@ -103,5 +104,5 @@ extension Date{
         let string = dateFormatter.string(from: self)
         return string
     }
-
+    
 }
